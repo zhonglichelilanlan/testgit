@@ -234,4 +234,7 @@ class RoleController extends CommonController {
 
 
 }
+public function lilanlan(){
+	echo "lilanaln";
+}
 ?>
