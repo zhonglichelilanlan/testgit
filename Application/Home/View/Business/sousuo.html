@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;">
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">搜索结果:</a>
+            <span class="span_sousuo">76541</span>
+        </div>
+         <div class="bg_ej">
+            <ul class="yewu_630">
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+            <foreach name="list" item="vo">
+            <ul class="yewu_630_  yewu_630_7" id="qufen_2">
+                <li class="liyw_1" id ="{$vo.id}">
+                    <a>{$vo.name}</a>
+
+                </li>
+                <li class="liyw_2" onchange="upperCase()" id ="{$vo.info_id}">
+                    <a>{$vo.frame_number}</a>
+
+                </li>
+                <li class="liyw_3">
+                    <div>
+                         
+                        <span class=" class_ span_1 " >下证书:</span>
+                        <span class=" class_ span_2">
+                        <input type="text" id="a" name="sh_certificate_time" class=" date_picker date_1 " value="{$vo.sh_certificate_time|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 " >车辆整改手续:</span>
+                        <span class=" class_ span_2"><input type="text" id="b" name="sh_car_procudure" class=" date_picker date_1 "
+                        <if condition="$vo['sh_car_procudure'] neq 0">value="{$vo.sh_car_procudure|date="Y-m-d",###}"</if> /></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 " >车辆许口证:</span>
+                        <span class=" class_ span_2"><input type="text" id="c" name="sh_car_permit" class="date_picker date_1" value="{$vo.sh_car_permit|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 ">回号时间:</span>
+                        <span class=" class_ span_2"><input type="text"  id="d" name="sh_time_return" class="date_picker date_1" value="{$vo.sh_time_return|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 ">回号记录:</span>
+                        <span class=" class_ span_2"><input type="text" id="e" name="sh_return_record"  class="date_picker date_1" value="{$vo.sh_return_record|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 " >输号状态:</span>
+                        <span class=" class_ span_2">
+                           
+                            <a <if condition="$vo['sh_status'] eq '0'">class="wancheng_w"<else/></if>>未完成<input name="sh_status" type="text" style="display:none;" value="0" />   </a>
+                            
+                            <a <if condition="$vo['sh_status'] eq '1'">class="wancheng_w" <else/></if>>完成 <input type="text" name="sh_status" style="display:none;"  value="1"/></a>
+                            
+                        </span>
+                    </div>
+
+                </li>
+               
+                <li class="liyw_4">
+                     <textarea placeholder="请在此输入备注信息......" id ="sh_remarks" name="sh_remarks" value="{$vo.sh_remarks}">{$vo.sh_remarks}</textarea>
+                    <div style="width:202px;text-align:center;margin-top:30px;">
+                        <img src="__IMG__/bcl.jpg" onclick="cc(this)" class="click_" style="cursor: pointer;">
+                        <img src="__IMG__/bccg.jpg"  style="display:none;" class="jiazai_1">
+                        <!-- <img src="__IMG__/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display:none;">
+                        <input id="size_11" value="{$vo.info_id}" style="display:none;">
+                    </div>
+                </li>
+              
+            </ul>
+
+            </foreach>
+           
+
+
+        </div>
+
+    </div>
+</div>
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">已完成工作</a>
+            <a class="more_" id="mover_2"  onclick="ywc()">more</a>
+        </div>
+        <div class="bg_ej">
+            <ul class="yewu_630">
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+           <foreach name="lists" item="vo">
+            <ul class="yewu_630_  yewu_630_7" id="qufen_1">
+                <li class="liyw_1" id ="{$vo.id}">
+                    <a>{$vo.name}</a>
+
+                </li>
+                <li class="liyw_2" onchange="upperCase()" id ="{$vo.info_id}">
+                   <a> {$vo.frame_number}</a>
+
+                </li>
+                <li class="liyw_3">
+                     <div>
+                         
+                        <span class=" class_ span_1 " >下证书:</span>
+                        <span class=" class_ span_2">
+                        <input type="text" id="a" name="sh_certificate_time" class=" date_picker date_1 " value="{$vo.sh_certificate_time|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 " >车辆整改手续:</span>
+                        <span class=" class_ span_2"><input type="text" id="b" name="sh_car_procudure" class=" date_picker date_1 "
+                        <if condition="$vo['sh_car_procudure'] neq 0">value="{$vo.sh_car_procudure|date="Y-m-d",###}"</if> /></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 " >车辆许口证:</span>
+                        <span class=" class_ span_2"><input type="text" id="c" name="sh_car_permit" class="date_picker date_1" value="{$vo.sh_car_permit|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 ">回号时间:</span>
+                        <span class=" class_ span_2"><input type="text"  id="d" name="sh_time_return" class="date_picker date_1" value="{$vo.sh_time_return|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 ">回号记录:</span>
+                        <span class=" class_ span_2"><input type="text" id="e" name="sh_return_record"  class="date_picker date_1" value="{$vo.sh_return_record|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 " >输号状态:</span>
+                        <span class=" class_ span_2">
+                           
+                            <a <if condition="$vo['sh_status'] eq '1'">class="wancheng_c"<else/></if>>未完成<input name="sh_status" type="text" style="display:none;" value="0" />   </a>
+                            
+                            <a <if condition="$vo['sh_status'] eq '1'">class="wancheng_c wancheng_c_" <else/></if>>完成 <input type="text" name="sh_status" style="display:none;"  value="1"/></a>
+                            
+                        </span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">完成时间:</span>
+                        <span class=" class_ span_2">
+
+                         {$vo.sh_ok_time|date="Y-m-d",###}
+                        </span>
+                    </div>
+                </li>
+                
+                <li class="liyw_4">
+                    <textarea placeholder="请在此输入备注信息......" id ="sh_remarks" name="sh_remarks" >{$vo.sh_remarks}</textarea>
+                    <div style="width:202px;text-align:center;margin-top:30px;">
+                        <img src="__IMG__/bcl.jpg" onclick="cc(this)" class="click_" style="cursor: pointer;">
+                        <img src="__IMG__/bccg.jpg"  style="display:none;" class="jiazai_1">
+                        <!-- <img src="__IMG__/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display:none;">
+                        <input id="size_11" value="{$vo.info_id}" style="display:none;">
+                    </div>
+                </li>
+            </ul>
+
+            </foreach>
+            
+
+
+        </div>
+
+<input type="text" id="is_ty" style="display:none;">
+    </div>
+</div>
+<input id="in_705" type="text" style="display:none;">
+<script type="text/javascript">
+$(function(){
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+
+$(function(){
+    $(".yewu_630_ .liyw_4 textarea").change(function(){
+       var id_= $(this).val();
+
+        var this_3=$(this).parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().attr("id");
+       
+        var name_=$(this).attr("name")
+        var this_=$(this);
+        
+        $.ajax({
+            
+            url:"{:U('Home/Business/update')}",
+            data:{"id":this_3,"zhi":id_,"qufen":this_4,"name":name_},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                this_.nextAll("div").find(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                
+                this_.nextAll("div").find(".jiazai").hide();
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+                 var sh = json.data;
+                 alert(sh);
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".center_ .kehu_628 .bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var id_= $(this).find("input").val();
+       var name_=$(this).find("input").attr("name");
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().parent().parent("").attr("id");
+      
+        var this_=$(this);
+        
+        $.ajax({
+            
+            url:"{:U('Home/Business/update')}",
+            data:{"id":this_3,"name":name_,"zhi":id_,"qufen":this_4},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().parent().find(".jiazai").show()
+            },
+            success:function(text){
+                  this_.parent().parent().parent().parent().find(".jiazai").hide()
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".date_picker.date_1").change(function(){
+        var this_=$(this);
+        var this_2=$(this).val();
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+
+        var this_4=$(this).parent().parent().parent().parent().attr("id");
+
+         var this_5=$(this).attr("name");
+         var this_=$(this);
+       
+ $.ajax({
+            
+            url:"{:U('Home/Business/update')}",
+            data:{"id":this_3,"zhi":this_2,"qufen":this_4,"name":this_5,},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").show();
+            },
+            success:function(text){
+                //   $
+                 this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").hide();
+                // alert(text)
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+});
+    });
+
+</script>
+<script type="text/javascript">
+    
+function upperCase(x)
+{
+var y=document.getElementById(x).value
+document.getElementById(x).value=y.toUpperCase()
+}
+</script>
+
+
+<script type="text/javascript">
+    function wwc(){
+
+        window.location.href="{:U('Home/Business/sh_1')}";
+        }
+
+</script>
+<script type="text/javascript">
+    function ywc(){
+
+        window.location.href="{:U('Home/Business/sh_2')}";
+        }
+
+</script>
+<!--日历插件开始-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+<!--日历插件结束-->
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<script>
+    $(function(){
+        $(".yewu_630_ .liyw_3 div span a").click(function(){
+
+            $(this).parent("span").find("a").removeClass("wancheng_w");
+            $(this).addClass("wancheng_w");
+            var this_1=$(this).find("input").val();
+            $("#is_ty").val(this_1)
+        })
+    });
+</script>
+</body>
+</html>

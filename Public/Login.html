@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="styles/css/common.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="styles/css/public.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="styles/css/date.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="styles/css/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="styles/css/diyUpload.css">
+    <script type="text/javascript" src="styles/js/jquery-1.9.1.min.js?v=20160627"></script>
+    <script type="text/javascript" src="styles/js/jq.js?v=20160627"></script>
+
+    <script type="text/javascript" src="styles/js/public.js?v=20160627"></script>
+
+    <script>
+
+
+            $(document).ready(function(){
+                $("body").keydown(function(e){
+                    var curKey = e.which;
+                    if(curKey == 13){
+                        input_()
+                    }
+                });
+            });
+
+function input_(){
+    alert(" yse")
+}
+    </script>
+
+</head>
+<input id="in" type="button" value="1111">
+<body style="background-color: #ededed;">
+
+<div class="login"  id="EV_MsgBox_ID">
+
+    <div class="login_bt">报关行管理系统111</div>
+    <div class="login_cn">
+        <p class="username">
+            <input type="text" value="" placeholder="用户名" />
+        </p>
+        <p class="password">
+            <input type="password" value="" placeholder="密码" />
+        </p>
+        <p class="yanzhengm_">
+
+            <input type="text" value="" placeholder="验证码" />
+            <span><img src="styles/img/4.jpg"></span>
+
+        </p>
+        <div class="submit_login">
+            <input type="submit" value="登录" />
+        </div>
+        <div class="submit_login submit_login_" style="display: none;">
+            用户名有误
+        </div>
+    </div>
+</div>
+<!--bottom开始-->
+<div class="foot">
+    <div>
+        <p>Copyright@ 2010 - 2017 All Rights Reserved</p>
+        <p>心逸鸿松版权所有 <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">京ICP备15060121号-1</a></p>
+
+    </div>
+</div>
+<!--bottom结束-->
+<script>
+    $(function(){
+        var msgID=$(".login").attr("id");
+        EV_MsgBox_ID=msgID;
+        EV_Show_msgDiv();
+
+
+    })
+</script>
+<script>
+
+
+
+
+
+
+
+
+
+
+    var EV_MsgBox_ID="";
+    function EV_modeAlert(msgID){
+        $('html body').animate({ scrollTop: 1 },100);
+        var bgObj=document.createElement("div");
+        bgObj.setAttribute('id','EV_bgModeAlertDiv');
+        document.body.appendChild(bgObj);
+        EV_Show_bgDiv();
+        EV_MsgBox_ID=msgID;
+        EV_Show_msgDiv();
+    }
+    //关闭对话窗口
+    function EV_closeAlert(){
+        var msgObj=document.getElementById(EV_MsgBox_ID);
+        var bgObj=document.getElementById("EV_bgModeAlertDiv");
+        msgObj.style.display="none";
+        document.body.removeChild(bgObj);
+        EV_MsgBox_ID="";
+    }
+
+    //窗口大小改变时更正显示大小和位置
+    window.onresize=function(){
+        if (EV_MsgBox_ID.length>0){
+            EV_Show_bgDiv();
+            EV_Show_msgDiv();
+        }
+    }
+    //窗口滚动条拖动时更正显示大小和位置
+    window.onscroll=function(){
+        if (EV_MsgBox_ID.length>0){
+            EV_Show_bgDiv();
+            EV_Show_msgDiv();
+        }
+    }
+    //把要显示的div居中显示
+    function EV_Show_msgDiv(){
+        var msgObj   = document.getElementById(EV_MsgBox_ID);
+        msgObj.style.display  = "block";
+        var msgWidth = msgObj.scrollWidth;
+        var msgHeight= msgObj.scrollHeight;
+        var bgTop=EV_myScrollTop();
+        var bgLeft=EV_myScrollLeft();
+        var bgWidth=EV_myClientWidth();
+        var bgHeight=EV_myClientHeight();
+        var msgTop=bgTop+Math.round((bgHeight-msgHeight)/2);
+        var msgLeft=bgLeft+Math.round((bgWidth-msgWidth)/2);
+        msgObj.style.marginTop = msgTop+"px";
+
+
+    }
+
+    //网页被卷去的上高度
+    function EV_myScrollTop(){
+        var n=window.pageYOffset
+                || document.documentElement.scrollTop
+                || document.body.scrollTop || 0;
+        return n;
+    }
+    //网页被卷去的左宽度
+    function EV_myScrollLeft(){
+        var n=window.pageXOffset
+                || document.documentElement.scrollLeft
+                || document.body.scrollLeft || 0;
+        return n;
+    }
+    //网页可见区域宽
+    function EV_myClientWidth(){
+        var n=document.documentElement.clientWidth
+                || document.body.clientWidth || 0;
+        return n;
+    }
+    //网页可见区域高
+    function EV_myClientHeight(){
+        var n=document.documentElement.clientHeight
+                || document.body.clientHeight || 0;
+        return n;
+    }
+
+
+
+</script>
+<style>
+.login{margin-bottom: 0px;}
+.foot p a:hover{color:blue;cursor: pointer;}
+.foot div{padding-bottom: 0px;}
+</style>
+<script type="text/javascript" src="styles/js/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+
+//    $(".login").hover(
+//            function(){
+//
+//                t = setTimeout(function(){
+//
+//                            alert(1)
+//                        },300);
+//            },
+//            function(){
+//
+//                clearTimeout(t);
+//            }
+//    );
+</script>
+</body>
+</html>

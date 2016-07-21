@@ -1,0 +1,41 @@
+@charset "utf-8";
+/**系统提示开始**/
+.tmc_1{width: 100%;position: fixed;top: 0px;height: 100%;background: url("../images/tm_.png");z-index: 100; display: none;}
+.tk_1{width: 400px;height: 200px;border-radius: 3px;background-color: #fff;z-index: 100;position: fixed;top:100px;left: 50%;margin-left: -200px; display: none;}
+.tk_1 .xtts_{border-bottom: 1px solid #e1e1e1;height: 55px;font-size: 16px;line-height: 55px;text-align: center;}
+.tk_1 .xtts_1{width: 340px;margin: auto;height: 73px;border-bottom: 1px solid #e1e1e1;line-height: 73px;text-align: center;color: #656565;font-size: 14px;}
+.tk_1 .xtts_2{text-align: center;padding-top: 20px;}
+.tk_1 .xtts_2 input{margin: 0px 10px;border: none;width: 75px;height: 30px;cursor: pointer;color: #fff;border-radius: 3px;letter-spacing: 5px;}
+.tk_1 .xtts_2 .queren_{background-color: #03a9f4;}
+.tk_1 .xtts_2 .quxiao_{background-color: #8bc34a;}
+
+
+.tk_2{width: 400px;height: 200px;border-radius: 3px;background-color: #fff;z-index: 100;position: fixed;top:100px;left: 50%;margin-left: -200px; display: none;}
+.tk_2 .xtts_{border-bottom: 1px solid #e1e1e1;height: 55px;font-size: 16px;line-height: 55px;text-align: center;}
+.tk_2 .xtts_1{width: 340px;margin: auto;height: 73px;border-bottom: 1px solid #e1e1e1;line-height: 73px;text-align: center;color: #656565;font-size: 14px;}
+.tk_2 .xtts_2{text-align: center;padding-top: 20px;}
+.tk_2 .xtts_2 input{margin: 0px 10px;border: none;width: 75px;height: 30px;cursor: pointer;color: #fff;border-radius: 3px;letter-spacing: 5px;}
+.tk_2 .xtts_2 .queren_{background-color: #03a9f4;}
+.tk_2 .xtts_2 .quxiao_{background-color: #8bc34a;}
+
+.fex_div{position: fixed;right: 10px;top: 150px;}
+.fex_div p{color: #fff;cursor: pointer;width: 41px;height: 35px;background-color: #c8c8c8;font-size: 12px;text-align: center;line-height: 15px;margin-top: 1px;padding-top: 7px;cursor: pointer;}
+.fex_div p:hover{ background-color: #03a9f4;}
+.fex_div .p_click{background-color: #03a9f4;}
+
+.hover_cs{background: url("../images/hover_1.png") no-repeat center;position: absolute;width: 523px;height: 155px;padding: 20px 40px;margin-left: 171px;margin-top: -50px;display: none;}
+.hover_cs .pp_1{font-size: 16px;padding-bottom: 15px;border-bottom: 1px solid #eeeeee;}
+.hover_cs .pp_2{font-size: 14px;padding-left: 10px;padding-top: 20px;overflow: hidden;}
+.hover_cs .pp_2 a{float: left;display: block;}
+.hover_cs .pp_2 .aaa_{width: 75px;text-align: right;padding-right: 10px;color: #969696;}
+.liyw_2_tk{width: 551px;border: 2px solid #03a9f4;position: absolute;background-color: #ffffff;border-radius: 3px;padding: 20px;    margin-top: -60px; margin-left: 151px;display: none;}
+.liyw_2_tk .liyw_2_tk_t{padding-bottom: 15px;border-bottom: 1px solid #eeeeee;font-size: 16px;}
+.liyw_2_tk .liyw_2_tk_c{padding-top: 15px;font-size: 14px;}
+.liyw_2_tk .liyw_2_tk_c ul{overflow: hidden;padding-bottom: 20px;}
+.liyw_2_tk .liyw_2_tk_c ul li{float: left;width:275px;padding-bottom: 20px;}
+.liyw_2_tk .liyw_2_tk_c ul li a{float: left;display: block;}
+.liyw_2_tk .liyw_2_tk_c ul li .a_i{width: 65px;text-align: right;color:#969696 ;margin-right:10px;}
+.liyw_2_tk .liyw_2_tk_p{overflow: hidden;}
+.liyw_2_tk .liyw_2_tk_p div{height: 42px;border: 1px solid #e3e3e3;background-color: #eeeeee;float: left;line-height: 42px;padding: 0px 19px;margin-right: 10px;margin-top: 20px;}
+.liyw_2_tk .sanjiao_{background: url("../images/sj.png")no-repeat center;width:15px;height: 20px;    position: absolute;margin-left: -34px; margin-top: 20px;}
+/**系统提示结束**/

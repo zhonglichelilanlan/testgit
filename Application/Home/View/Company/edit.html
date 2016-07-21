@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;" onload="myfun()">
+<!--header开始-->
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+    <include file="Public/left.html" />
+    <div class="center_g center_r">
+        <div class="center_top"><a>增加员工</a></div>
+        <div class="center_c">
+            <div class="from_">
+                <div class="tex_">
+                    <p class="bt_">姓名</p>
+                    <p class="bt_in">
+                        <input type="text" id="user_name" name="user_name" value="{$list.user_name}" />
+                    </p>
+                </div>
+                <div class="tex_">
+                    <p class="bt_">电话</p>
+                    <p class="bt_in">
+                        <input type="text" id="mobile" name="mobile" value="{$list.mobile}" />
+                    </p>
+                </div>
+                <div class="tex_">
+                    <p class="bt_">登入密码</p>
+                    <p class="bt_in">
+                        <input type="text" id="password" name="password" value="" />
+                    </p>
+                </div>
+                <div class="tex_">
+                    <p class="bt_">所选角色</p>
+                    <div class="bt_in">
+                        <div class="select_">
+                            <if condition="$list['name'] neq 0">
+                            <div class="select_l">请选择</div>
+                            <else/>
+                            <div class="select_l" id="{$list.cid}" ><input  type="hidden"  id="role" value="{$list.cid}"  />{$list.name}</div>
+                            </if> 
+                            <div class="select_r"></div>
+                            <input value="0" id="input_" type="text">
+                        </div>
+                        <div class="click_">
+                          <foreach name="roless"  item="vo">
+                            <div id="{$vo.id}" ><input type="hidden"  name="cb_id"  /> {$vo.name}</div>
+                          </foreach>
+                        </div>
+                    </div>
+                </div>
+                <div class="tex_">
+                    <p class="bt_"></p>
+                    <p class="bt_in">
+                        <input id="id" type="hidden"  value="{$list.id}"  />
+                        <input type="submit" class="submit_" onclick="submit()" value="保存" />
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    
+            
+            
+            alert(text_.attr("id"))
+})
+
+function submit(){
+            var id = document.getElementById("id").value;
+            var cid_ = $("#role").val();
+            var text_=$(".select_l").attr("id");
+             if(!text_){
+              
+               cids_ = text_;
+                
+             }else{
+
+               cids_ = cid_;  
+             }
+
+
+             
+             $.ajax({
+            
+           
+            url:"{:U('Home/Company/update')}",
+            data:{"user_name":$("#user_name").val(),"mobile":$("#mobile").val(), "password":$("#password").val(), "role":text_,"id":id},
+            type:'post',
+            success:function(text){
+                 
+
+               
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+
+                 window.location.href="{:U('Home/Company/index')}";
+
+                 }else if(json.code==-1){ 
+
+
+                 alert("未查到对应的数据");   
+                 }
+                 
+                } 
+                 
+            
+
+        })
+    
+  
+    
+   }
+</script>
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+</body>
+</html>

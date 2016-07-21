@@ -1,0 +1,44 @@
+
+/*理财产品主体*/
+.invest{ width:1200px; padding-top:50px; padding-bottom:30px; margin:auto;}
+.invest_t{ height:35px; line-height:35px; background:url(../images/times.png) no-repeat left; padding-left:25px;}
+.invest_t span{ font-size:14px; color:#646464; display:block; float:left; width:185px; font-weight:bold;}
+.invest_t p{ float:left; width:200px; height:35px; line-height:35px; font-size:14px; color:#646464;}
+.invest_t p b{ font-size:18px; color:#FF7200; margin-left:3px; margin-right:3px;}
+
+.invest_m{ border:1px solid #EBEBEB; min-height:800px;}
+.invest_m1{ height:50px; line-height:50px; padding-left:25px; font-size:16px; color:#000000;}
+.invest_m2{ height:40px; background:#FFF4EB; padding-left:25px;}
+.invest_m2 p{ height:40px; background:url(../images/bgpic1.png) no-repeat left; font-size:14px; color:#FF7100; line-height:40px; padding-left:25px;}
+.invest_m3{ height:110px; padding-top:20px; border-bottom:1px solid #EBEBEB;}
+.invest_m3 p{ width:190px; height:70px; border-top:1px solid #EBEBEB; margin:auto; position:relative; line-height:70px; margin-top:15px; font-size:14px; color:#323232; text-align:center;}
+.invest_m3 p b{ font-size:30px; color:#FF7200; font-weight:normal;}
+.invest_m3 p span{ display:block; background:#FFF; width:120px; height:25px; text-align:center; line-height:25px; position:absolute; top:-13px; left:35px; font-size:14px; color:#323232;}
+.invest_m31{ float:left; width:398px; height:85px; border-right:1px solid #EBEBEB;}
+.invest_m32{ float: right; width:400px; height:85px;}
+.invest_m4 table {display: table;border-collapse: separate;border-spacing: 0px;border-color: gray;}
+.invest_m4 tr{ height:80px; line-height:80px;}
+.invest_m4 th{ background:#F9F9F9; font-size:14px; color:#969696; text-align: left; font-weight:normal; border:none; border-bottom:1px solid #EBEBEB; }
+.invest_m4 td{ font-size:14px; color:#000000; text-align: left; font-weight:normal;border-bottom:1px solid #EBEBEB;}
+.invest_m4 td a:hover{ color:#009FE7;}
+.invest_m4 .jindu p{ float:left; height:4px; width:50px; background:#D6D6D6; margin-top:38px;}
+.invest_m4 .jindu p span{ display:block; height:4px; background:#FF7100;}
+.invest_m4 .jindu b{ float:left; margin-left:15px; font-weight:normal;}
+.invest_m4 .tabf{padding-left:20px; text-align:left;}
+.invest_m4 .touzi{ text-align:center;}
+.invest_m4 .touzi a{ display:block; width:90px; height:40px; border:1px solid #009EE7; text-align:center; margin:auto; line-height:40px; font-size:14px; color:#009FE7; border-radius:4px;}
+.invest_m4 .touzi a:hover{ background:#009EE7; color:#FFF;}
+.invest_m4 .touzi span{ display:block; width:90px; height:40px; border:1px solid #EBEBEB; text-align:center; margin:auto; line-height:40px; font-size:14px; color:#C7C7C7; border-radius:4px;}
+
+.page{ width:480px; height:37px; margin:auto; margin-top:30px; margin-bottom:30px;}
+.page a{ width:35px; height:35px; display:block; border:1px solid #EBEBEB; float:left; margin-right:10px; line-height:35px; text-align:center; color:#8C8C8C;}
+.page a:hover{border:1px solid #009FE8; color:#009FE8;}
+.page .page1{ width:85px; height:35px; float:left;}
+.page .page2{border:1px solid #009FE8; color:#009FE8;}
+.page .page3{ background:#E5E4E2; color:#FFF; border:none; height:37px;}
+.page .page3:hover{ border:none;color:#FFF;}
+
+
+
+
+

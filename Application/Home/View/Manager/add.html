@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<script type="text/javascript" src="__JS__/uploadPreview.js?v=20160628"></script>
+<script type="text/javascript" src="__JS__/jquery.wallform.js?v=20160628"></script>
+<body style="background-color: #ededed;" onload="myfun()">
+<!--header开始-->
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+    <div class="center_g center_l">
+        <div class="center_top"><a class="a_mygs">贸易公司管理</a></div>
+        <p class="p_hover"><a class="a_6" href="{:U('Home/Manager/mylist')}">公司列表</a></p>
+
+
+    </div>
+    <div class="center_g center_r">
+        <div class="center_top"><a>增加贸易公司</a></div>
+        <div class="center_c">
+       
+            <ul class="zj_mggs">
+                <li>
+                    <p class="left_p"><a>*</a>贸易公司名称</p>
+                    <p><input type="text" class="feik_" onkeyup="keyup_(this)" name="name" id="name" /></p>
+                    <a class="po_712">贸易公司名称为必填项</a>
+                </li>
+
+                <li>
+                    <p class="left_p"><a>*</a>贸易公司地址</p>
+                    <p><input type="text" class="feik_"  onkeyup="keyup_(this)" name="address" id="address" /></p>
+                    <a class="po_712">贸易公司地址为必填项</a>
+                </li>
+                <li>
+                    <p class="left_p"><a>*</a>管理员名称</p>
+                    <p><input type="text" class="feik_"  onkeyup="keyup_(this)" name="user_name" id="user_name" /></p>
+                    <a class="po_712">管理员名称为必填项</a>
+                </li>
+                <li>
+                    <p class="left_p"><a>*</a>管理员手机号</p>
+                    <p><input type="text" class="feik_"  onkeyup="keyup_(this)" name="mobile" id="mobile" /></p>
+                    <a class="po_712">手机号为必填项</a>
+                </li>
+                <li>
+                    <p class="left_p"><a>*</a>管理员密码</p>
+                    <p><input type="password"  class="feik_"  onkeyup="keyup_(this)" name="password" id="password" /></p>
+                    <a class="po_712">管理员密码为必填项</a>
+                </li>
+                
+                <li>
+                    <p class="left_p">企业法人名称</p>
+                    <p><input type="text" name="legal_person" id="legal_person" /></p>
+                </li>
+                <li>
+                    <p class="left_p">公司注册资金</p>
+                    <p><input type="text" name="registered_capital" id="registered_capital" /></p>
+                </li>
+
+                 <form id="imageform" role="form" class="form-horizontal m-t" action="{:U('Manager/insert')}" enctype='multipart/form-data' method="post" >
+                <li>
+                    <p class="left_p">企业资料信息</p>
+                    <div class="sc_tp">
+
+                    <!--上传图片开始-->
+                    <div class="sc_tp" style="padding: 0px;">
+                        <div class="demo">
+                           <div style="height:30px;width:410px;overflow: hidden;">
+                                <div id="up_status" style="display:none">
+                                    <img src="__IMG__/loader.gif" alt="uploading"/>
+                                </div>
+                                <div id="up_btn" class="btn" style="float:left;">
+                                    <span>添加图片</span>
+                                    <input id="photoimg" type="file" name="photoimg[]">
+                                </div>
+                                <p id="pp_" style="float:left;">最大100KB，支持jpg，gif，png格式。</p>
+                            </div>
+                            <div id="preview" style="overflow: hidden;">
+                                
+                            </div>
+                            {$logo}
+                        </div>
+
+                        <a class="po_712">企业资料信息为必填项</a>
+                    </div>
+                    <!--上传图片结束-->
+
+                    </div>
+
+                </li>
+                </form>
+                <style type="text/css">
+                    .demo{width:411px;overflow: hidden;}
+                    .preview{max-width:59px; height: 59px;margin:10px;}
+                    .demo p{line-height:26px}
+                    .btn{position: relative;overflow: hidden;margin-right: 4px;display:inline-block;*display:inline;padding:4px 10px 4px;font-size:14px;line-height:18px;*line-height:20px;color:#fff;text-align:center;vertical-align:middle;cursor:pointer;background-color:#5bb75b;border:1px solid #cccccc;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-bottom-color:#b3b3b3;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+                    .btn input {position: absolute;top: 0; right: 0;margin: 0;border: solid transparent;opacity: 0;filter:alpha(opacity=0); cursor: pointer;}
+                    .div_img{float: left;border:solid 1px #dedede;height: 78px;width: 78px;overflow: hidden;text-align: center;margin: 5px;}
+                    #preview{overflow: hidden;width: 410px;}
+                    .delete_715{display: none;position: absolute;margin-left: 57px;
+                        margin-top: 3px;}
+                    .div_img:hover .delete_715{display: block;cursor: pointer;}
+                </style>
+
+                <script>
+
+                    function de_(d){
+                        var d_=$(d).nextAll(".preview").attr("path");
+
+                        // alert(d_);return;
+                        $.ajax({
+
+                            url:"{:U('Home/Manager/del_photo')}",
+                            data:{"photoimg_":d_},
+                            type:'post',
+                            success:function(text){
+
+
+
+                                var json = eval("("+text+")");
+
+                                if(json.code==1){
+
+                                    $(d).parent(".div_img").remove();
+                                }else {
+
+
+                                    alert("删除失败！亲");
+                                }
+
+
+                            }
+                        })
+                    }
+
+                    function submit_2(){
+                        var _val='';
+                        var text_='';
+                        $("#preview .div_img .preview").each(function(){
+                            var val=$(this).attr("path");
+                            _val+=_val!=""?",":"";
+                            text_= _val+=val;
+                        })
+                        $(".zj_mggs li p .feik_").each(function(){
+                            var val_=$(this).val();
+                            var value = $.trim(val_);
+
+                            if(val_=="" || value==""){
+                                $(this).addClass("red_")
+                                $(this).parent().nextAll(".po_712").text()
+                                $(this).parent().nextAll(".po_712").show();
+
+                                $(this).parent().nextAll(".po_712").animate({opacity:'0' },100);
+                                $(this).parent().nextAll(".po_712").animate({opacity:'1' },200);
+
+                            }else{
+
+
+                            }
+                        })
+                        if($(".red_").size()==0) {
+                            $.ajax({
+
+                                url: "{:U('Home/Manager/add_conpy')}",
+                                data: {
+                                    "name": $("#name").val(),
+                                    "legal_person": $("#legal_person").val(),
+                                    "registered_capital": $("#registered_capital").val(),
+                                    "address": $("#address").val(),
+                                    "user_name": $("#user_name").val(),
+                                    "mobile": $("#mobile").val(),
+                                    "password": $("#password").val(),
+                                    "qua_name": $("#up_img_WU_FILE_0").val(),
+                                    "photoimg_": text_
+                                },
+                                type: 'post',
+                                success: function (text) {
+
+
+                                    var json = eval("(" + text + ")");
+
+                                    if (json.code == 1) {
+
+                                        window.location.href = "{:U('Home/Manager/mylist')}";
+
+                                    } else if (json.code == -1) {
+
+
+                                        alert("未查到对应的数据");
+                                    }
+
+
+                                }
+                            })
+                        }
+                    }
+                </script>
+                <script type="text/javascript" src="jquery.wallform.js"></script>
+                <script type="text/javascript">
+                    $(function(){
+                        $('#photoimg').die('click').live('change', function(){
+                            var status = $("#up_status");
+                            var btn = $("#up_btn");
+
+                            var btn_p = $("#pp_");
+                            $("#imageform").ajaxForm({
+                                target: '#preview',
+                                beforeSubmit:function(){
+                                    status.show();
+                                    btn.hide();
+                                    btn_p.hide();
+                                },
+                                success:function(){
+                                    status.hide();
+                                    btn.show();
+                                    btn_p.show();
+                                },
+                                error:function(){
+                                    status.hide();
+                                    btn.show();
+                                    btn_p.show();
+                                } }).submit();
+                        });
+                    });
+                </script>
+               
+                
+                
+                
+                
+                <li>
+                    <p class="left_p"></p>
+                    
+                    <p><input type="submit" class="submit_1" onclick="submit_2()" value="保存"/></p>
+                </li>
+            </ul>
+        
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function change_(tt){
+        var value = $.trim($(tt).val());
+        if($(tt).val()!=="" && value!==""){
+            $(tt).removeClass("red_")
+
+            $(tt).parent().nextAll(".po_712").animate({opacity:'0' },200);
+            $(tt).parent().nextAll(".po_712").hide();
+        };
+    }
+    function keyup_(tt){
+        var value = $.trim($(tt).val());
+
+        if($(tt).val()!=="" && value!==""){
+            $(tt).removeClass("red_")
+
+            $(tt).parent().nextAll(".po_712").animate({opacity:'0' },200);
+
+            $(tt).parent().nextAll(".po_712").hide();
+        };
+    }
+
+</script>
+
+<style>
+    .po_712{
+        position: absolute;
+        margin-left:-410px;
+        margin-top: 45px;
+        font-size: 12px;
+        color: red;
+        display: none; opacity:0;
+    }
+
+</style>
+<script type="text/javascript">
+    
+//function submit(tt){
+//    $(".zj_mggs li p input").each(function(){
+//        var val_=$(this).val();
+//        var value = $.trim(val_);
+//        if(val_=="" || value==""){
+//            $(this).addClass("red_")
+//            $(this).parent().nextAll(".po_712").text()
+//            $(this).parent().nextAll(".po_712").show();
+//
+//            $(this).parent().nextAll(".po_712").animate({opacity:'0' },100);
+//
+//            $(this).parent().nextAll(".po_712").animate({opacity:'1' },200);
+//
+//        }else{
+//
+//
+//        }
+//    })
+//    $(".zj_mggs .left_p a").each(function(){
+//        var val_=$(this).parent().next("p").find("input").val();
+//        var value = $.trim(val_);
+//
+//        if(val_=="" || value==""){
+//            $(this).parent().next("p").find("input").css("border","1px solid red");
+//            $(this).parent().next("p").find("input").addClass("border_");
+//
+//        }else{
+//
+//        }
+//    })
+//
+//        if($(".red_").size()==0){
+//
+//            var text_=$(".select_l").attr("id");
+//             $.ajax({
+//
+//            url:"{:U('Home/Manager/insert')}",
+//            data:{"name":$("#name").val(),"legal_person":$("#legal_person").val(), "registered_capital":$("#registered_capital").val(), "address":$("#address").val(),"user_name":$("#user_name").val(),"password":$("#password").val(),"qua_name":$("#up_img_WU_FILE_0").val()},
+//            type:'post',
+//            success:function(text){
+//
+//
+//
+//                 var json = eval("("+text+")");
+//
+//                 if(json.code==1){
+//
+//                window.location.href="{:U('Home/Manager/mylist')}";
+//
+//                 }else if(json.code==-1){
+//
+//
+//                 alert("未查到对应的数据");
+//                 }
+//
+//                }
+//
+//
+//
+//        })
+//
+//        }
+//
+//   }
+
+
+</script>
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<!--系统提示弹框开始-->
+<!--系统提示弹框结束-->
+<div class="tmc_1"></div>
+<div class="tk_1">
+    <div class="xtts_">系统提示</div>
+    <div class="xtts_1">请确认你要删除的的信息是否准确?</div>
+    <div class="xtts_2">
+        <input type="button" value="确认" class="queren_">
+        <input type="button" value="取消" class="quxiao_">
+    </div>
+</div>
+<div class="tk_2">
+    <div class="xtts_">系统提示</div>
+    <div class="xtts_1">你无权删除该信息，请联系技术支持管理人员！</div>
+    <div class="xtts_2">
+        <input type="button" value="确认" class="queren_ queren_on">
+        <input type="button" value="取消" class="quxiao_">
+    </div>
+</div>
+<!--系统提示弹框结束-->
+<script type="text/javascript" src="__JS__/diyUpload.js?v=20160627"></script>
+<script type="text/javascript" src="__JS__/webuploader.html5only.min.js?v=20160627"></script>
+<link rel="stylesheet" type="text/css" href="__CSS__/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/diyUpload.css">
+<script>
+
+
+    $('#test').diyUpload({
+        url:'server/fileupload.php',
+        success:function( data ) {
+            console.info( data );
+        },
+        error:function( err ) {
+            console.info( err );
+        }
+    });
+
+
+</script>
+<style>
+    .diyButton{display: block}
+    .left_p a{color: red;}
+</style>
+</body>
+</html>

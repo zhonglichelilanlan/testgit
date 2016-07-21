@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;">
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">待处理工作</a>
+            <!-- <a class="more_" onclick="wwc()">更多</a> -->
+        </div>
+        <div class="bg_ej">
+
+            <ul class="yewu_630" >
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+
+             <foreach name="list" item="vo">
+            <ul class="yewu_630_ yewu_630_7" id="qufen_2">
+                <li class="liyw_1" id ="{$vo.id}"><a>{$vo.name}</a></li>
+                <li class="liyw_2" id ="{$vo.info_id}"><a>{$vo.frame_number}</a></li>
+                <li class="liyw_3">
+                     <div>
+                        <span <if condition="$vo['sh_return_record'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>回号:</span>
+                        <span class=" class_ span_2"><input type="text" disabled="disabled" id="ysx_srr" name="sh_return_record" value="{$vo.sh_return_record}" disabled="disabled" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_cib'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>报检行:</span>
+                        <span class=" class_ span_2"><input type="text" id="ysx_cid" name="ysx_cib" value="{$vo.ysx_cib}" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_address'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>库存地址:</span>
+                        <span class=" class_ span_2"><input type="text" id="ysx_yas" name="ysx_address" value="{$vo.ysx_address}" class="date_picker date_1" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_shipper'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>货主名称:</span>
+                        <span class=" class_ span_2"><input type="text" id="ysx_ysr" name="ysx_shipper" value="{$vo.ysx_shipper}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_online_time'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>上线日期:</span>
+                        <span class=" class_ span_2"><input type="text" id="ysx_yot" name="ysx_online_time"
+                        <if condition="$vo['ysx_online_time'] neq ''">
+                        value="{$vo.ysx_online_time|date="Y-m-d",###}" 
+                        <else />
+                        value= ""
+                        </if>
+                        class="date_picker date_1" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_vehicle_time'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>验车日期:</span>
+                        <span class=" class_ span_2"><input type="text" id="ysx_yvt" name="ysx_vehicle_time" 
+                        <if condition="$vo['ysx_vehicle_time'] neq ''">
+                        value="{$vo.ysx_vehicle_time|date="Y-m-d",###}" 
+                        <else />
+                        value=""
+                        </if>class="date_picker date_1"   /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_unboxing_time'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>拆箱日期:</span>
+                        <span class=" class_ span_2"><input type="text" id="ysx_yut" name="ysx_unboxing_time" 
+                        <if condition="$vo['ysx_unboxing_time'] neq ''">
+                        value="{$vo.ysx_unboxing_time|date="Y-m-d",###}" 
+                        <else />
+                        value=""
+                        </if> class="date_picker date_1" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['ysx_backed_time'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>回库日期:</span>
+                        <span class=" class_ span_2"><input type="text"  id="ysx_ybt" name="ysx_backed_time" 
+                        <if condition="$vo['ysx_backed_time'] neq ''">
+                        value="{$vo.ysx_backed_time|date="Y-m-d",###}" 
+                        <else />
+                        value=""
+                        </if> class="date_picker date_1"  /></span>
+                    </div>
+
+                    <div>
+                        <span class=" class_ span_1" id="ysx_status" name="ysx_status" value="{$vo.ysx_status}" >约上线状态:</span>
+                        <span class=" class_ span_2">
+<style type="text/css">
+   
+</style>
+                    <a  <if condition="$vo['ysx_status'] eq '0'">class="this_ wancheng_w"<else/>class="this_"</if>>未完成<input name="ysx_status" type="text" style="display:none;"   value="0" />   </a>
+                            
+                            <a id="1" <if condition="$vo['ysx_status'] eq '1'">class="this_ wancheng_w" <else/>class="this_"</if>>完成 <input name="ysx_status" type="text" style="display:none;"   value="1" /></a>        
+                            
+                            
+                             <input id="size_11" value="{$vo['ysx_status']}" style="display:none;">
+                        </span>
+                    </div>
+
+                </li>
+                <li class="liyw_4">
+                    <textarea placeholder="请在此输入备注信息......" id="bg_rs" name="ysx_remarks" value="{$vo.ysx_remarks}">{$vo.ysx_remarks}</textarea>
+                     <div style="width:202px;text-align:center;margin-top:30px;">
+                        <!--  <img src="__IMG__/bcl.jpg" onclick="cc(this)" class="click_" style="cursor: pointer;"> -->
+                        <img src="__IMG__/bccg.jpg"  style="display:none;" class="jiazai_1">
+                        <!-- <img src="__IMG__/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display:none;">
+                    </div>
+                </li>
+            </ul>
+            </foreach>
+        </div>
+
+    </div>
+</div>
+<!--日历插件开始-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+<script type="text/javascript">
+$(function(){
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+
+$(function(){
+    $(".yewu_630_ .liyw_4 textarea").change(function(){
+
+       var id_= $(this).val();
+
+        var this_3=$(this).parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().attr("id");
+
+        var name_=$(this).attr("name");
+        var this_=$(this);
+        
+        $.ajax({
+            
+            url:"{:U('Home/Business/update_ysx')}",
+            data:{"id":this_3,"zhi":id_,"qufen":this_4,"name":name_},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                this_.nextAll("div").find(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                
+                this_.nextAll("div").find(".jiazai").hide();
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+                 var sh = json.data;
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ .liyw_3 div .span_2 a").click(function(){
+
+       var id_= $(this).find("input").val();
+       var name_=$(this).find("input").attr("name");
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().parent().parent("").attr("id");
+      
+        var this_=$(this);
+       
+        $.ajax({
+            
+            url:"{:U('Home/Business/update_ysx')}",
+            data:{"id":this_3,"name":name_,"zhi":id_,"qufen":this_4},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().parent().find(".jiazai").show()
+            },
+            success:function(text){
+                  this_.parent().parent().parent().parent().find(".jiazai").hide()
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ li span input").change(function(){
+      
+        var this_=$(this);
+        var this_2=$(this).val();
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+
+        var this_4=$(this).parent().parent().parent().parent().attr("id");
+
+         var this_5=$(this).attr("name");
+         var this_=$(this);
+         // alert(this_3+"......"+this_2+"......"+this_4+"......"+this_5)
+       
+ $.ajax({
+            
+            url:"{:U('Home/Business/update_ysx')}",
+            data:{"id":this_3,"zhi":this_2,"qufen":this_4,"name":this_5},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").show();
+            },
+            success:function(text){
+                //   $
+                 this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").hide();
+                // alert(text)
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+});
+    });
+
+</script>
+<!--日历插件结束-->
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<script type="text/javascript">
+$(function(){
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+    function cc(ul_id,tt){
+
+        var id_1=$(tt).parent().parent().parent().find("#ysx_srr").val()//sh_return_record 
+        var id_2=$(tt).parent().parent().parent().find("#ysx_cid").val()//ysx_cib 
+        var id_3=$(tt).parent().parent().parent().find("#ysx_yas").val()//ysx_address
+        var id_4=$(tt).parent().parent().parent().find("#ysx_ysr").val()//ysx_shipper
+        var id_5=$(tt).parent().parent().parent().find("#ysx_yot").val()//ysx_online_time
+        var id_6=$(tt).parent().parent().parent().find("#ysx_yvt").val()//ysx_vehicle_time:
+        var id_7=$(tt).parent().parent().parent().find("#ysx_yut").val()//ysx_unboxing_time:
+        var id_8=$(tt).parent().parent().parent().find("#ysx_ybt").val()//ysx_backed_time:  
+        var id_9=$(tt).parent().parent().parent().find("#size_11").val()//ysx_status:
+        var id_11=$(tt).parent().parent().parent().find("#bg_rs").val()//ysx_status:         
+        var id_10=$(tt).parent().parent().parent().attr("id")//已完成 未完成id:         
+        
+        
+         
+
+
+    $.ajax({
+            
+            url:"{:U('Home/Business/update_ysx')}",
+            data:{"id":ul_id,"sh_return_record":id_1,"ysx_cib":id_2,"ysx_address":id_3,"ysx_shipper":id_4,"ysx_online_time":id_5,"ysx_vehicle_time":id_6,"ysx_unboxing_time":id_7,"ysx_backed_time":id_8,"ysx_status":id_9,"qufen":id_10,"ysx_remarks":id_11},
+            type:'post',
+            beforeSend:function(){
+                $(tt).hide();
+                $(tt).nextAll(".jiazai").show();
+                $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                  $(tt).nextAll(".jiazai").hide();
+                  $(tt).nextAll(".jiazai_1").show();
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 window.location.href="{:U('Home/Business/ysx')}";
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+
+}
+</script>
+<!--bottom结束-->
+<script>
+    $(function(){
+        $(".yewu_630_ .liyw_3 div span .this_").click(function(){
+
+            $(this).parent("span").find("a").removeClass("wancheng_w");
+            $(this).addClass("wancheng_w");
+            var this_=$(this).attr("id");
+            $(this).nextAll("#size_11").val(this_)
+        })
+        $(".yewu_630_ .liyw_3 div span .this_1").click(function(){
+
+            $(this).parent("span").find("a").removeClass("this_1_");
+            $(this).addClass("this_1_");
+            var val_=$(this).index();
+
+            if(val_!=0){
+                $(this).parent().parent().nextAll(".yamu_").hide();
+            }else{
+                $(".yamu_").show();
+            }
+        })
+        $(".yewu_630_ .liyw_3 div span .checkbox_").click(function(){
+
+
+
+           var val_= $(this).find("input").val();
+            if(val_==0){
+                $(this).addClass("wancheng_w ");
+                $(this).find("input").val("1");
+
+            }else{
+                $(this).removeClass("wancheng_w ");
+                $(this).find("input").val("0");
+            }
+        })
+    });
+</script>
+<script type="text/javascript">
+    function wwc(){
+
+        window.location.href="{:U('Home/Business/ysx_1')}";
+        }
+
+</script>
+<script type="text/javascript">
+    function ywc(){
+
+        window.location.href="{:U('Home/Business/ysx_2')}";
+        }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;">
+
+<!--header结束-->
+<!--统计开始-->
+<div class="tongji_">
+    <div class="tongji_f tongji_f_1">
+        <div class="tongji_l tongji_img_1"></div>
+        <div class="tongji_r">
+            <p class="shuzi_">{$global['shuhao']}</p>
+            <p>输号中</p>
+        </div>
+    </div>
+    <div class="tongji_f tongji_f_2">
+        <div class="tongji_l tongji_img_1"></div>
+        <div class="tongji_r">
+            <p class="shuzi_">{$global['daodan']}</p>
+            <p>到单中</p>
+        </div>
+    </div>
+    <div class="tongji_f tongji_f_3">
+        <div class="tongji_l tongji_img_1"></div>
+        <div class="tongji_r">
+            <p class="shuzi_">{$global['baojian']}</p>
+            <p>报检中</p>
+        </div>
+    </div>
+    <div class="tongji_f tongji_f_4">
+        <div class="tongji_l tongji_img_1"></div>
+        <div class="tongji_r">
+            <p class="shuzi_">{$global['baoguan']} </p>
+            <p>报关中</p>
+        </div>
+    </div>
+    <div class="tongji_f tongji_f_5">
+        <div class="tongji_l tongji_img_1"></div>
+        <div class="tongji_r">
+            <p class="shuzi_">{$global['ysx']}</p>
+            <p>约上线中</p>
+        </div>
+    </div>
+    <div class="tongji_f tongji_f_6">
+        <div class="tongji_l tongji_img_1"></div>
+        <div class="tongji_r">
+            <p class="shuzi_">{$global['wc']}</p>
+            <p>已完成</p>
+        </div>
+    </div>
+</div>
+<!--统计结束-->
+<!--center开始-->
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top"><a class="maoyi_">最新报关</a></div>
+        <div class="bg_ej">
+            <ul class="ul_ej_">
+                <li class="lli_1">车架号</li>
+                <li class="lli_2">输号</li>
+                <li class="lli_3">到单</li>
+                <li class="lli_4">报检</li>
+                <li class="lli_5">报关</li>
+                <li class="lli_6">约上线</li>
+                <li class="lli_7">总耗时</li>
+            </ul>
+             <foreach name="list" item="vo">
+            <div class="div_ej">
+                <ul class="ull_1">
+                
+                    <li>{$vo.frame_number}</li>
+                
+                </ul>
+                <ul class="ull_2">
+
+                    <li><a <if condition=" $vo['sh_certificate_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['sh_certificate_time']  neq (''|| 0) ">下证书({$vo.sh_certificate_time|date='m-d',###})<else/>下证书</if></a></li>
+
+                    <li><a <if condition=" $vo['sh_time_return']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['sh_time_return']  neq (''|| 0) ">回号({$vo.sh_time_return|date='m-d',###})<else/>回号</if></a></li>
+
+                </ul>
+                <ul class="ull_3">
+                    <li><a <if condition=" $vo['dd_arrive_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['dd_arrive_time']  neq (''|| 0) ">到港({$vo.dd_arrive_time|date='m-d',###})<else/>到港</if></a></li>
+                    <li><a <if condition=" $vo['dd_change_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['dd_change_time']  neq (''|| 0) ">换do({$vo.dd_change_time|date='m-d',###})<else/>换do</if></a></li>
+
+                </ul>
+                <ul class="ull_4">
+                    <li><a <if condition=" $vo['bj_issue_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bj_issue_time']  neq (''|| 0) ">通关单({$vo.bj_issue_time|date='m-d',###})<else/>通关单</if></a></li>
+                    <li><a <if condition=" $vo['bj_is_check']  neq (''|| 0) "><else/>class="a_cl"</if>>验木</a></li>
+
+                </ul>
+                <ul class="ull_5">
+                    <li><a <if condition=" $vo['bg_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_time']  neq (''|| 0) ">申请报关({$vo.bg_time|date='m-d',###})<else/>申请报关</if></a></li>
+                    <li><a <if condition=" $vo['bg_atax_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_atax_time']  neq (''|| 0) ">出税({$vo.bg_atax_time|date='m-d',###})<else/>出税</if></a></li>
+                    <li><a <if condition=" $vo['bg_hdmi_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_hdmi_time']  neq (''|| 0) ">出绿联({$vo.bg_hdmi_time|date='m-d',###})<else/>出绿联</if></a></li>
+                    <li><a <if condition=" $vo['bg_paytax_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_paytax_time']  neq (''|| 0) ">缴税({$vo.bg_paytax_time|date='m-d',###})<else/>缴税</if></a></li>
+                    <li><a <if condition=" $vo['bg_party_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_party_time']  neq (''|| 0) ">放行({$vo.bg_party_time|date='m-d',###})<else/>放行</if></a></li>
+                    <li><a <if condition=" $vo['bg_surveyor_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_surveyor_time']  neq (''|| 0) ">验货({$vo.bg_surveyor_time|date='m-d',###})<else/>验货</if></a></li>
+                    <li><a <if condition=" $vo['bg_sjbk_time']   neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['bg_sjbk_time']   neq (''|| 0) ">随机布控({$vo.bg_sjbk_time|date='m-d',###})<else/>随机布控</if></a></li>
+                </ul>
+                <ul class="ull_6">
+                    <li><a <if condition=" $vo['ysx_vehicle_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['ysx_vehicle_time']  neq (''|| 0) ">验车({$vo.ysx_vehicle_time|date='m-d',###})<else/>验车</if></a></li>
+                    <li><a <if condition=" $vo['sh_certificate_time']  neq (''|| 0) "><else/>class="a_cl"</if>><if condition=" $vo['sh_certificate_time']  neq (''|| 0) ">放车({$vo.sh_certificate_time|date='m-d',###})<else/>放车</if></a></li>
+                </ul>
+                <ul class="ull_7">
+                    <li><a class="shijian_1">开始时间({$vo.create_time|date='m-d',###})</a></li>
+                    <if condition=" $vo['finish_time']  neq (''|| 0) ">
+                    <li><a class="shijian_1">结束时间({$vo.finish_time|date='m-d',###})</a></li>
+                    <else />
+                    <li><a class="shijian_1">结束时间</a></li>
+                    </if>
+                   <!--  <li><a class="shijian_2">总耗时({$vo.bigtime})</a></li> -->
+                </ul>
+            </div>
+           </foreach>
+        <div class="pages">
+           {$page}
+
+        </div>
+    </div>
+</div>
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+</body>
+</html>

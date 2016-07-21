@@ -1,0 +1,45 @@
+/*合作伙伴*/
+.news_main{ width:1160px; min-height:700px; border:1px solid #EBEBEB; margin:auto; margin-top:30px; margin-bottom:30px; padding:20px;}
+.newsm_t{ height:50px; line-height:50px; font-size:24px; color:#FF7200;}
+.newsm_m li{ width:1120px; min-height:160px; background:#F9F9F9; padding-left:20px; padding-right:20px; margin-bottom:10px;}
+.news_tt{ height:35px; line-height:35px; margin-top:10px; border-bottom:2px solid #009EE7;}
+.news_tt a{ font-size:20px; color:#009FE7;}
+.news_tt span{ float:right;}
+.news_tt span a{ display:block; width:16px; height:16px; background: url(../images/ttbg1.png) no-repeat; margin-top:10px;}
+.news_tt span a:hover{ background:url(../images/ttbg10.png) no-repeat;}
+.news_info{ height:34px; line-height:25px; padding-top:10px;}
+.news_info img{ float:left;}
+.news_info span{ float:right; font-size:14px; color:#949494;}
+.news_m{ font-size:14px; color:#000000; line-height:22px; padding-top:3px;}
+
+/*分页*/
+.page{ width:480px; height:37px; margin:auto; margin-top:20px; margin-bottom:30px;}
+.page a{ width:35px; height:35px; display:block; border:1px solid #EBEBEB; float:left; margin-right:10px; line-height:35px; text-align:center; color:#8C8C8C;}
+.page a:hover{border:1px solid #009FE8; color:#009FE8;}
+.page .page1{ width:85px; height:35px; float:left;}
+.page .page2{border:1px solid #009FE8; color:#009FE8;}
+.page .page3{ background:#E5E4E2; color:#FFF; border:none; height:37px;}
+.page .page3:hover{ border:none;color:#FFF;}
+
+/*媒体报道内容页*/
+.newat_t{ height:50px; line-height:50px; font-size:24px; color:#000000; border-bottom:1px solid #EBEBEB;}
+.new_atm{ padding-bottom:60px;}
+.new_atm p{ padding-top:10px; padding-bottom:10px; line-height:24px; font-size:14px; color:#000000;}
+.new_atb1{ height:35px; line-height:35px;}
+.new_atb1 span{ font-size:14px; color:#009FE7;}
+.new_atb1 a{ font-size:12px; color:#666;}
+.new_atb1 a:hover{ color:#F00;}
+.new_atb2{ height:40px; line-height:40px; text-align:right; padding-top:40px;}
+.new_atb2 a{ font-size:16px; color:#009FE7;}
+
+
+
+
+
+
+
+
+
+
+
+

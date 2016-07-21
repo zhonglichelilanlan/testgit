@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>个人中心—充值成功第四步</title>
+<meta name="Keywords" content="META关键字">
+<meta name="Description" content="META网页描述">
+<link href="__CSS__/Common.css" rel="stylesheet" type="text/css">
+<link href="__CSS__/user_center.css" rel="stylesheet" type="text/css">
+</head> 
+<block name="head"><include file="Public/header.html" /></block>
+
+<!-- 个人中心充值成功 -->
+<!-- <div class="noset">
+<div class="nosetmain">
+<include file="user_center:leftMenu"/>
+<div class="nosetMR">
+<div class="cg_T"><div class="cgT1"><a href="#"><返回</a><b>账户充值</b></div></div>
+<div class="cg_T2"><span><img src="__IMG__/cg01.png"></span><p>恭喜你，充值成功！</p></div>
+<div class="cg_T3"><P>本次充值金额<span>{$verify_result.money_order}</span></P><P>当前账户余额<span>{$money.money}</span></P></div>
+<div class="cg_T4"><a href="{:U('Person/Recharge')}">我要投资</a></div>
+<div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+</div> 
+</div>-->
+
+<foreach name="to" item="to">
+
+<span>{$to.icon}</span>
+{$to.bank_code}<br />
+
+</foreach>
+<include file="Public/footer.html" />

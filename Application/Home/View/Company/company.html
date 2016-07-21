@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;" onload="myfun()">
+<!--header开始-->
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+   <include file="Public/left.html" />
+    <div class="center_g center_r">
+        <div class="center_top"><a>公司信息</a></div>
+        <div class="center_c">
+            <div class="gsxx_">
+
+                <p><span class="sp_color"></span><span><img src="__IMG__/logo_.png" /></span></p>
+                <p><span class="sp_color">公司名称:</span><span>{$list.name}</span></p>
+                <p><span class="sp_color">公司地址:</span><span>{$list.address}</span></p>
+                <p><span class="sp_color">管理员:</span><span>{$list.user_name}</span></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+</body>
+</html>

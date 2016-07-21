@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+
+<body style="background-color: #ededed;" onload="myfun()">
+<!--header开始-->
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top"><a class="maoyi_">增加报关信息</a></div>
+        <!--贸易公司信息-->
+        <div class="bghzj_629">
+            <div class="div_h">贸易公司信息</div>
+            <div class="div_c">
+                <div class="div_select">
+                    <div class="pp_span">选择贸易公司</div>
+                    <div class="bt_in">
+                        <div class="select_">
+                        <foreach name="pert"  item="vo">
+                              <if condition="$did eq ''">
+                                <div class="select_l " id=" " id="role" value=" " >请选择</div>
+                              </if>
+                              <if condition="$vo.id eq $did">
+                                <div class="select_l " id="{$vo.id}" id="role" value="{$vo.id}" >{$vo.name}</div>
+                              </if>
+                            </foreach>
+                             
+                            <div class="select_r"></div>
+                            <input value="0" id="input_" type="text" >
+                        </div>
+                        
+                        <div class="click_">
+                        <foreach name="list"  item="vo">
+                            <div id="{$vo.id}"><input type="hidden"  name="trade_id"  value="{$vo.id}"/>{$vo.name}</div>
+                        </foreach>   
+                        </div>
+                        
+                    </div>
+                    <div class="hover_div"><a href="{:U('Home/Manager/add')}"><img src="__IMG__/xiaojia.png" /></a></div>
+                </div>
+            </div>
+        </div>
+        <!--车辆基本信息-->
+        <div class="bghzj_629">
+            <div class="div_h">车辆基本信息</div>
+            <div class="div_c">
+               <div class="from_div">
+                    <div class="from_div">
+                        <span class="span_"><a>*</a>品名</span>
+                        <span class="span_2"><input type=""  onkeyup="keyup_(this)" name="product_name" id="product_name" value="{$list.product_name}"></span>
+                        <a class="po_712">品名为必填项</a>
+                    </div>
+
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>颜色</span>
+                       <span class="span_2"><input type=""  onkeyup="keyup_(this)" name="color" id="color" value="{$list.color}"></span>
+                       <a class="po_712">颜色为必填项</a>
+                   </div>
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>车架号</span>
+                       <span class="span_2"><input type="" name="frame_number"  onkeyup="keyup_(this)" maxlength="18" id="frame_number" value="{$list.frame_number}"></span>
+
+                       <a class="po_712">车架号为必填项</a>
+                   </div>
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>单价</span>
+                       <span class="span_2"><input type="" name="price"  onkeyup="keyup_(this)" id="price" value="{$list.price}"></span>
+                       <a class="po_712">单价为必填项</a>
+                   </div>
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>座位数</span>
+                       <span class="span_2"><input type="" name="number_seats"  onkeyup="keyup_(this)" id="number_seats" value="{$list.number_seats}"></span>
+                       <a class="po_712">座位数为必填项</a>
+                   </div>
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>生产日期</span>
+                       <span class="span_2">
+                           <input type="text" class="date_picker" name="production_date"  onkeyup="keyup_(this)"  onchange="change_(this)" value="{$list.production_date}" id="production_date">
+
+                       </span>
+                       <a class="po_712">生产日期为必填项</a>
+
+                   </div>
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>发动机号</span>
+                       <span class="span_2"><input type="" name="engine_number"  onkeyup="keyup_(this)" value="{$list.engine_number}" id="engine_number"></span>
+                       <a class="po_712">发动机号为必填项</a>
+                   </div>
+                   <div class="from_div">
+                       <span class="span_"><a>*</a>轮毂尺寸</span>
+                       <span class="span_2"><input type="" name="size" id="size" onkeyup="keyup_(this)" value="{$list.size}"></span>
+                       <a class="po_712">轮毂尺寸为必填项</a>
+                   </div>
+                  <!--  <div class="from_div">
+                       <span class="span_">产地:</span>
+                       <span class="span_2"><input type="" name="producer" id="producer" value="{$list.producer}"></span>
+                   </div> -->
+                   <div class="from_div">
+                       <span class="span_">品牌:</span>
+                       <span class="span_2"><input type="" name="brand" id="brand" value="{$list.brand}"></span>
+                   </div>
+
+                   <!-- <div class="from_div">
+                       <span class="span_">级别:</span>
+                       <span class="span_2"><input type="" name="level" id="level" value="{$list.level}"></span>
+                   </div> -->
+
+                   <div class="from_div">
+                       <span class="span_">车型:</span>
+                       <span class="span_2"><input type="" name="kinds" id="kinds" value="{$list.kinds}"></span>
+                   </div>
+
+
+
+               </div>
+
+            </div>
+        </div>
+
+        <!--车辆配置信息-->
+        <div class="bghzj_629">
+            <div class="div_h">车辆配置信息</div>
+            <div class="div_c">
+                <div class="jiben_xx">
+                    <div class="zengjia_ class_gg">
+                        <input type="text" placeholder="如: 胎压检测系统" maxlength="10" name"configure[]" id="configure"/>
+                        <button type="button" onclick="click_(this)">增 加</button>
+                    </div>
+                    <div class="class_gg div_class" onmouseout="hover_1(this)" onmouseover="hover_2(this)">
+
+                        <!-- <div class="u_629"></div> -->
+                        <div class="delect_">
+                            <img src="__IMG__/sc.png" onclick="hover_3(this)">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="jiben_foot">
+
+                    <input type="button" onclick="submit()" value="保存提交"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input value="" id="val_718" style="display:none;">
+<script type="text/javascript">
+    function change_(tt){
+        var value = $.trim($(tt).val());
+        if($(tt).val()!=="" && value!==""){
+            $(tt).removeClass("red_")
+
+            $(tt).parent().nextAll(".po_712").animate({opacity:'0' },200);
+            $(tt).parent().nextAll(".po_712").hide();
+        };
+    }
+    function keyup_(tt){
+        var value = $.trim($(tt).val());
+        if($(tt).val()!=="" && value!==""){
+            $(tt).removeClass("red_")
+
+            $(tt).parent().nextAll(".po_712").animate({opacity:'0' },200);
+            $(tt).parent().nextAll(".po_712").hide();
+        };
+    }
+
+  function submit(){
+
+      $(".from_div .from_div .span_ a").each(function(){
+          var val_=$(this).parent().next("span").find("input").val();
+          var value = $.trim(val_);
+          if(val_=="" || value==""){
+              $(this).parent().next("span").find("input").addClass("red_")
+              $(this).parent().nextAll(".po_712").text()
+              $(this).parent().nextAll(".po_712").show();
+
+              $(this).parent().nextAll(".po_712").animate({opacity:'0' },100);
+              $(this).parent().nextAll(".po_712").animate({opacity:'1' },200);
+
+          }else{
+
+
+          }
+      })
+      var _val='';
+      $(".jiben_xx .class_gg ").each(function(){
+          var val=$(this).find(".u_629").text();
+
+          _val+=_val!=""?",":"";
+          var a_id= _val+=val;
+            $("#val_718").val(a_id)
+
+      })
+      if($(".red_").size()==0){
+             var cid_ = $("#role").val();
+             var tai_ = $("#input_704").val();
+             
+             var text_= $(".select_l").attr("id");
+             // if(!text_){s
+              
+             //   cids_ = text_;
+                
+             // }else{
+
+             //   cids_ = cid_;  
+             // }
+           
+           
+             $.ajax({
+           
+            url:"{:U('Home/Manager/inserts')}",
+            data:{"product_name":$("#product_name").val(), "producer":$("#producer").val(),"color":$("#color").val(),"brand":$("#brand").val(),"price":$("#price").val(),"frame_number":$("#frame_number").val(),"level":$("#level").val(),"number_seats":$("#number_seats").val(),"kinds":$("#kinds").val(),"size":$("#size").val(),"production_date":$("#production_date").val(),"engine_number":$("#engine_number").val(),"trade_id":text_,"configure":$("#val_718").val()},
+            type:'post',
+            success:function(text){
+                 
+
+                
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+
+                 window.location.href="{:U('Home/Manager/index')}";
+
+                 }else if(json.code==-1){ 
+
+
+                 alert("未查到对应的数据");   
+                 }
+                 
+                } 
+                 
+            
+
+        })
+
+      }else{
+//          alert("no")
+      }
+    
+   }
+</script>
+
+<style>
+    .po_712{
+        position: absolute;
+        margin-left: -285px;
+        margin-top: 45px;
+        font-size: 12px;
+        color: red;
+        display: none;
+        opacity:0;
+    }
+
+</style>
+
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+</body>
+</html>

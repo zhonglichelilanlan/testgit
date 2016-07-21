@@ -1,0 +1,22 @@
+<div class="center_g center_l">
+        <div class="center_top"><a class="a_top">公司管理</a></div>
+        <p class="p_hover"><a class="a_1" href="{:U('Home/Company/index')}">公司成员</a></p>
+        <p><a class="a_2" href="{:U('Home/Company/company')}">公司信息</a></p>
+        <input type="" style="display:none;" id="class_" value="{$action_names}" />
+    </div>
+   <script type="text/javascript">
+   		$(function(){
+			$(".center_l p").click(function(){
+				var href_=$(this).find("a").attr("href");
+				window.location.href=href_;
+			})
+   			var val_=$("#class_").val();
+   			if(val_=="company"){
+   				$(".center_ .center_g.center_l p").removeClass("p_hover")
+   				$(".center_ .center_g.center_l p").eq(1).addClass("p_hover")
+   			}else{
+   				$(".center_ .center_g.center_l p").removeClass("p_hover")
+   				$(".center_ .center_g.center_l p").eq(0).addClass("p_hover")
+   			}
+   		})
+   </script>

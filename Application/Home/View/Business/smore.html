@@ -1,0 +1,379 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+
+<script>
+
+    $(function(){
+
+        $(".yewu_630_7 .liyw_1 a").hover(function(){
+            var qufen=$(this).parent().parent("ul").attr("id");
+           var id_1= $(this).parent().attr("id");
+           var this_t=$(this);
+          var wid_=$(this).width()
+
+
+            $.ajax({
+           
+            url:"{:U('Home/Business/slshuhao')}",
+            data:{"id":id_1},
+            type:'post',
+            success:function(text){
+                 
+
+                
+                 var json = eval("("+text+")");
+
+                 if(json){ 
+
+                     
+                    $(".liyw_1").find(".hover_cs").remove();
+                    this_t.append(
+
+                    '<div class="hover_cs" style="display: block" >'+
+                    '<p class="pp_1">公司基本信息</p>'+
+                    '<p class="pp_2"><a class="aaa_">公司名称: </a><a> '+json.name+'</a></p>'+
+                    '<p class="pp_2"><a class="aaa_">公司法人: </a> <a> '+json.legal_person+'</a></p>'+
+                    '<p class="pp_2"><a class="aaa_">公司管理员: </a> <a> '+json.user_name+'</a></p>'+
+                    ' </div>'
+            
+                    )
+                   this_t.find(".hover_cs").css("margin-left",wid_+"px");
+             
+                 }else{ 
+
+
+                 alert("未查到对应的数据");   
+                 }
+                 
+                } 
+                 
+            
+
+        })
+           
+            //$(this).find(".hover_cs").show();
+        },function(){
+            $(this).find(".hover_cs").hide();
+            $(this).find(".hover_cs").remove();
+        })
+
+
+        $(".yewu_630_7 .liyw_2 a").hover(function(){
+        var qufen=$(this).parent().parent("ul").attr("id");
+            
+            var id_2= $(this).parent().attr("id");
+            var this_t=$(this);
+             var wid_=$(this).width()
+            $.ajax({
+           
+            url:"{:U('Home/Business/slshuhaos')}",
+            data:{"id":id_2,"did":qufen},
+            type:'post',
+            success:function(text){
+                 
+
+                
+                 var json = eval("("+text+")");
+                
+           if(json){ 
+
+                    
+            
+            
+            $(".liyw_2").find(".liyw_2_tk").remove();
+            this_t.append(
+
+            '<div class="liyw_2_tk" style="display: block;" >'+
+            '<div class="sanjiao_"></div>'+
+
+            '<div class="liyw_2_tk_t">车辆基本信息</div>'+
+            '<div class="liyw_2_tk_c">'+
+            '<ul>'+
+            '<li>'+
+            '<a class="a_i">品名:</a>'+
+            '<a>'+json.product_name+'</a>'+
+            '</li>'+
+            '<li>'+
+            ' <a class="a_i">品名产地:</a>'+
+            '<a>'+json.producer+'</a>'+
+            '</li>'+
+            ' <li>'+
+            ' <a class="a_i">颜色:</a>'+
+            ' <a>'+json.color+'</a>'+
+            '</li>'+
+            '<li>'+
+            '<a class="a_i">品名:</a>'+
+            '<a>'+json.product_name+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            ' <a class="a_i">单价:</a>'+
+            ' <a>'+json.price+'</a>'+
+            '</li>'+
+            '<li>'+
+            '<a class="a_i">车架号:</a>'+
+            '<a>'+json.frame_number+'</a>'+
+            '</li>'+
+            '<li>'+
+            ' <a class="a_i">级别:</a>'+
+            '<a>'+json.level+'</a>'+
+            ' </li>'+
+            '<li>'+
+            '<a class="a_i">座位数</a>'+
+            ' <a>'+json.number_seats+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            ' <a class="a_i">型号:</a>'+
+            '<a>'+json.kinds+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            '<a class="a_i">轮毂尺寸:</a>'+
+            '<a>'+json.size+'</a>'+
+            '</li>'+
+            '<li>'+
+            '<a class="a_i">生产日期:</a>'+
+            '<a>'+json.production_date+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            '<a class="a_i">发动机号:</a>'+
+            '<a>'+json.engine_number+'</a>'+
+            ' </li>'+
+            '</ul>'+
+            '</div>'+
+            '<div class="liyw_2_tk_t">车辆配置信息</div>'+
+            '<div class="liyw_2_tk_p">'+
+           
+
+
+
+            ' </div>'+
+            '</div>'
+            )
+
+    var json2 = json.data;
+
+            $.each(json2,function(a,t){
+             
+             this_t.find("a .liyw_2_tk .liyw_2_tk_p").append(
+                     '<div>'+t.name+'</div>'
+
+                )
+            })
+                this_t.find(".liyw_2_tk").css("margin-left",wid_+10+"px");
+                 }else{ 
+
+
+                 alert("未查到对应的数据");   
+                 }
+                 
+                } 
+                 
+            
+
+        })
+            
+            //$(this).find(".hover_cs").show();
+        },function(){
+             $(".liyw_2 .liyw_2_tk").remove()
+
+            
+        })
+    })
+</script>
+
+<body style="background-color: #ededed;">
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">待处理工作</a>
+            
+        </div>
+        <div class="bg_ej">
+            <ul class="yewu_630">
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+            <foreach name="list" item="vo">
+            <ul class="yewu_630_  yewu_630_7" id="qufen_2">
+                <li class="liyw_1" id ="{$vo.id}">
+                    <a>{$vo.name}</a>
+
+                </li>
+                <li class="liyw_2" onchange="upperCase()" id ="{$vo.info_id}">
+                    <a>{$vo.frame_number}</a>
+
+                </li>
+                <li class="liyw_3">
+                    <div>
+                         
+                        <span <if condition="$vo['sh_certificate_time'] gt 0">class="class_ span_1  span_1_"<else/>class=" class_ span_1 "</if>>下证书:</span>
+                        <span class=" class_ span_2">
+                        <input type="text" id="a" name="sh_certificate_time" <if condition="$vo['sh_certificate_time'] gt 0">class="date_picker date_1  up_1"<else/>class=" class_ span_1 "</if> value="{$vo.sh_certificate_time|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['sh_car_procudure'] gt 0">class="class_ span_1  span_1_"<else/>class=" class_ span_1 "</if>>车辆整改手续:</span>
+                        <span class=" class_ span_2"><input type="text" id="b" name="sh_car_procudure" <if condition="$vo['sh_car_procudure'] gt 0">class="date_picker date_1  up_1"<else/>class=" class_ span_1 "</if> value="{$vo.sh_car_procudure|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['sh_car_procudure'] gt 0">class="class_ span_1  span_1_"<else/>class=" class_ span_1 "</if>>车辆许口证:</span>
+                        <span class=" class_ span_2"><input type="text" id="c" name="sh_car_permit" <if condition="$vo['sh_car_permit'] gt 0">class="date_picker date_1  up_1"<else/>class=" class_ span_1 "</if> value="{$vo.sh_car_permit|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['sh_time_return'] gt 0">class="class_ span_1  span_1_"<else/>class=" class_ span_1 "</if>>回号时间:</span>
+                        <span class=" class_ span_2"><input type="text"  id="d" name="sh_time_return" <if condition="$vo['sh_time_return'] gt 0">class="date_picker date_1  up_1"<else/>class=" class_ span_1 "</if> value="{$vo.sh_time_return|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['sh_return_record'] gt 0">class="class_ span_1  span_1_"<else/>class=" class_ span_1 "</if>>回号记录:</span>
+                        <span class=" class_ span_2"><input type="text" id="e" name="sh_return_record"  <if condition="$vo['sh_return_record'] gt 0">class="date_picker date_1  up_1"<else/>class=" class_ span_1 "</if>value="{$vo.sh_return_record|date="Y-m-d",###}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['sh_return_record'] gt 0">class="class_ span_1  span_1_"<else/>class=" class_ span_1 "</if>>输号状态:</span>
+                        <span class=" class_ span_2">
+                           
+                            <a <if condition="$vo['sh_status'] eq '0'">class="wancheng_w"<else/></if>>未完成<input type="text" style="display:none;" value="0" />   </a>
+                            
+                            <a <if condition="$vo['sh_status'] eq '1'">class="wancheng_w" <else/></if>>完成 <input type="text" style="display:none;"  value="1"/></a>
+                            
+                        </span>
+                    </div>
+
+                </li>
+               
+                <li class="liyw_4">
+                     <textarea placeholder="请在此输入备注信息......" id ="sh_remarks" name="sh_remarks" value="{$vo.sh_remarks}">{$vo.sh_remarks}</textarea>
+                    <div style="width:202px;text-align:center;margin-top:30px;">
+                        <img src="__IMG__/bcl.jpg" onclick="cc(this)" class="click_" style="cursor: pointer;">
+                        <img src="__IMG__/bccg.jpg"  style="display:none;" class="jiazai_1">
+                        <!-- <img src="__IMG__/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display:none;">
+                        <input id="size_11" value="{$vo.info_id}" style="display:none;">
+                    </div>
+                </li>
+              
+            </ul>
+
+            </foreach>
+           
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<input type="text" id="is_ty" style="display:none;">
+    </div>
+</div>
+<input id="in_705" type="text" style="display:none;">
+<script type="text/javascript">
+$(function(){
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+    function cc(tt){
+
+        var id_1=$("#inpout_705").val()
+        var id_2=$("#inpout_").val()
+        var id_3=$("#is_ty").val();//判断选择框类型
+        var id_4=$(tt).parent().parent().parent().attr("id");//判断是已完成还是未完成
+        var id_5=$(tt).parent().parent().parent().find("#size_11").val()//获取同级id
+        var id_6=$(tt).parent().parent().parent().find("#a").val()//获取同级id
+        var id_7=$(tt).parent().parent().parent().find("#b").val()//获取同级id
+        var id_8=$(tt).parent().parent().parent().find("#c").val()//获取同级id
+        var id_9=$(tt).parent().parent().parent().find("#d").val()//获取同级id
+        var id_10=$(tt).parent().parent().parent().find("#e").val()//获取同级id
+        var id_11=$(tt).parent().parent().parent().find("#h").val()//获取同级id
+        var id_12=$(tt).parent().parent().parent().find("#sh_remarks").val()//获取同级id
+        
+    $.ajax({
+            
+            url:"{:U('Home/Business/update')}",
+            data:{"id":id_5,"sh_certificate_time":id_6,"sh_car_procudure":id_7,"sh_car_permit":id_8,"sh_time_return":id_9,"sh_return_record":id_10,"sh_return_record":id_11,"sh_remarks":id_12,"sh_status":id_3,"qufen":id_4},
+            type:'post',
+            beforeSend:function(){
+                $(tt).hide();
+                $(tt).nextAll(".jiazai").show();
+                $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                  $(tt).nextAll(".jiazai").hide();
+                  $(tt).nextAll(".jiazai_1").show();
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 window.location.href="{:U('Home/Business/shuhao')}";
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+
+}
+</script>
+<script type="text/javascript">
+    
+function upperCase(x)
+{
+var y=document.getElementById(x).value
+document.getElementById(x).value=y.toUpperCase()
+}
+</script>
+
+
+</script>
+<!--日历插件开始-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+<!--日历插件结束-->
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<script>
+    $(function(){
+        $(".yewu_630_ .liyw_3 div span a").click(function(){
+
+            $(this).parent("span").find("a").removeClass("wancheng_w");
+            $(this).addClass("wancheng_w");
+            var this_1=$(this).find("input").val();
+            $("#is_ty").val(this_1)
+        })
+    });
+</script>
+<div class="fex_div">
+    <p class="p_click">等待<br /> 处理 </p>
+    <p>处理 <br />完成</p>
+    <p>返回 <br />顶部</p>
+
+</div>
+
+</body>
+</html>

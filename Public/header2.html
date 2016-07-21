@@ -1,0 +1,354 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/common.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/public.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/tk.css?v=20160628" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/date.css?v=20160627" />
+    <script type="text/javascript" src="__JS__/jquery-1.9.1.min.js?v=20160627"></script>
+    <script type="text/javascript" src="__JS__/public.js?v=20160627"></script>
+    <script type="text/javascript" src="__JS__/jq.js?v=20160627"></script>
+</head>
+<body style="background-color: #ededed;">
+<!--header开始-->
+<!--header开始-->
+<script type="text/javascript">
+    $(function(){
+        $(".header_ .header_w .header_r .tx_1 .hover_ p").click(function(){
+           var href_=$(this).find("a").attr("href");
+            window.location.href =href_;
+        })
+    })
+</script>
+<div class="header_">
+    <div class="header_w">
+        <div class="header_l">
+            <div class="logo_">
+                <img src="__IMG__/logo.png"/>
+            </div>
+            <ul>
+                <foreach name="listh" item="vo">
+                <!--默认颜色的按钮是a_1之a_4 蓝色的是al_1之al_4-->
+                <if condition="$vo['name'] eq '公司管理'"> 
+                <li  class="a_0" style="display: none;" id ="{$vo['action'][1]}"><a href="{:U('Home/Company/index')}">公司管理</a></li>
+                </if>
+                <if condition="$vo['id'] eq '权限管理'">
+                <li  class="a_2" style="display: none;" id ="{$vo.action}"><a href="{:U('Home/Role/role')}">权限管理</a></li>
+                </if>
+                <if condition="$vo['name'] eq '报表统计'">
+                <li  class="a_3" style="display: none;" id ="{$vo.action}"><a href="{:U('Home/Business/index')}">报表统计</a></li>
+                </if>
+                <if condition="$vo['name'] eq '操作日志'" >
+                <li  class="a_4" style="display: none;" id ="{$vo.action}"><a href="{:U('Home/Logs/logs')}">操作日志</a></li>
+                </if>
+                <if condition="$vo['name'] eq '客户经理'">
+                <li  class="a_5 "><a href="{:U('Home/Manager/index')}" id ="{$vo['action']}">客户经理</a></li>
+                <li  class="a_6 "><a href="{:U('Home/Manager/mylist')}" id ="{$vo['action']}">贸易公司管理</a></li>
+                <li  class="a_7">
+                    <a class="a_z">主要业务</a>
+                    <foreach name="listh" item="vo">
+                    <div class="id_div" style="">
+                        <if condition="$vo['name'] eq '输号操作'">
+                        <a href="{:U('Home/Business/shuhao')}">输号操作</a>
+                        </if>
+                        <if condition="$vo['name'] eq '到单操作'">
+                        <a href="{:U('Home/Business/daodan')}">到单操作</a>
+                        </if>
+                        <if condition="$vo['name'] eq '报检操作'">
+                        <a href="{:U('Home/Business/baojian')}">报检操作</a>
+                        </if>
+                        <if condition="$vo['name'] eq '报关操作'">
+                        <a href="{:U('Home/Business/baoguan')}">报关操作</a>
+                        </if>
+                        <if condition="$vo['name'] eq '约上线操作'">
+                        <a href="{:U('Home/Business/ysx')}">约上线操作</a>
+                        </if>
+                      
+                    </div>
+                    </foreach>
+                </li>
+                </if>
+                
+                <!-- <input type="" id="class_" value="{$path_info}" /> -->
+                </foreach>
+                
+
+            </ul>
+        </div>
+        <div class="header_r">
+            <if condition="$action_names eq 'shuhao'">
+            <div class="sousuo_" style="">
+                
+                <input id="size_o1" value="0" placeholder="输入车架号后五位"style="display:none;">
+                
+                <input class="in_r" value="" type="submit">
+            </div>
+            </if>
+            <if condition="$action_names eq 'daodan'">
+            <div class="sousuo_" style="">
+               
+                <input id="size_o2" value="1" placeholder="输入车架号后五位"style="display:none;">
+                <input class="in_r" value="" type="submit">
+            </div>
+            </if>
+            <if condition="$action_names eq 'baojian'">
+            <div class="sousuo_" style="">
+               
+                <input id="size_o3" value="2" placeholder="输入车架号后五位"style="display:none;">
+                <input class="in_r" value="" type="submit">
+            </div>
+            </if>
+            <if condition="$action_names eq 'baoguan'">
+            <div class="sousuo_" style="">
+                
+                <input id="size_o4" value="3" placeholder="输入车架号后五位" style="display:none;">
+                <input class="in_r" value="" type="submit">
+            </div>
+            </if>
+           
+            <if condition="$action_names eq 'ysx'">
+            <div class="sousuo_" style="">
+                
+            <input id="size_o5" value="4" placeholder="输入车架号后五位" style="display:none;">
+                <input class="in_r" value="" type="submit">
+            </div>
+
+            </if>
+
+            <if condition="$action_names eq 'complete'">
+            <div class="sousuo_" style="">
+                <input class="in_" value="" type="text" placeholder="输入车架号后五位">
+                <input class="in_r" value="" type="submit">
+            </div>
+            </if>
+            <if condition="$action_names eq 'notcomplete'">
+            <div class="sousuo_" style="">
+                <input class="in_" value="" type="text" placeholder="输入车架号后五位">
+                <input class="in_r" value="" type="submit">
+            </div>
+            </if>
+            <div class="div_">
+                <div class="tx_1">
+                    <div class="tx_">
+                        <img src="__IMG__/tx.png" />
+                    </div> 
+                    <div>{$user_name}</div>
+                 <div class="hover_">
+                        <p class="p_1"><a href="{:U('Home/Login/password')}">个人设置</a></p>
+                        <p class="p_2"><a href="{:U('Home/Login/logout')}">退出</a></p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--header结束-->
+
+
+
+
+<script>
+
+    $(function(){
+    	
+        $(".yewu_630_7 .liyw_1 a").hover(function(){
+              $(".liyw_1").find(".hover_cs").remove();
+            var qufen=$(this).parent().parent("ul").attr("id");
+           var id_1= $(this).parent().attr("id");
+           var this_t=$(this);
+          var wid_=$(this).width()
+            t = setTimeout(function(){
+
+                                
+                          
+                if($(".hover_cs").size()==0){
+
+
+                $.ajax({
+               
+                url:"{:U('Home/Business/slshuhao')}",
+                data:{"id":id_1},
+                type:'post',
+                success:function(text){
+                     
+
+                    
+                     var json = eval("("+text+")");
+
+                     if(json){ 
+
+                         
+                      
+                        this_t.append(
+
+                        '<div class="hover_cs" style="display: block" >'+
+                        '<p class="pp_1">公司基本信息</p>'+
+                        '<p class="pp_2"><a class="aaa_">公司名称: </a><a> '+json.name+'</a></p>'+
+                        '<p class="pp_2"><a class="aaa_">公司法人: </a> <a> '+json.legal_person+'</a></p>'+
+                        '<p class="pp_2"><a class="aaa_">公司管理员: </a> <a> '+json.user_name+'</a></p>'+
+                        ' </div>'
+                
+                        )
+                       this_t.find(".hover_cs").css("margin-left",wid_+"px");
+                 
+                     }else{ 
+
+
+                     alert("未查到对应的数据");   
+                     }
+                     
+                    } 
+                     
+                
+
+            })
+             }  else{
+                         $(this).find(".hover_cs").remove();
+                    }
+            //$(this).find(".hover_cs").show();
+              },300);
+        },function(){
+                clearTimeout(t);
+            $(this).find(".hover_cs").hide();
+            $(this).find(".hover_cs").remove();
+        })
+
+
+        $(".yewu_630_7 .liyw_2 a").hover(function(){
+
+            
+        var qufen=$(this).parent().parent("ul").attr("id");
+            
+            var id_2= $(this).parent().attr("id");
+            
+            var this_t=$(this);
+             var wid_=$(this).width()
+              t = setTimeout(function(){
+
+            $.ajax({
+    
+            url:"{:U('Home/Business/slshuhaos')}",
+            data:{"id":id_2,"did":qufen},
+            type:'post',
+            success:function(text){
+                 
+
+                
+                 var json = eval("("+text+")");
+                
+           if(json){ 
+
+                    
+            
+            
+            $(".liyw_2").find(".liyw_2_tk").remove();
+            this_t.append(
+
+            '<div class="liyw_2_tk" style="display: block;" >'+
+            '<div class="sanjiao_"></div>'+
+
+            '<div class="liyw_2_tk_t">车辆基本信息</div>'+
+            '<div class="liyw_2_tk_c">'+
+            '<ul>'+
+            '<li>'+
+            '<a class="a_i">品名:</a>'+
+            '<a>'+json.product_name+'</a>'+
+            '</li>'+
+            '<li>'+
+            ' <a class="a_i">品名产地:</a>'+
+            '<a>'+json.producer+'</a>'+
+            '</li>'+
+            ' <li>'+
+            ' <a class="a_i">颜色:</a>'+
+            ' <a>'+json.color+'</a>'+
+            '</li>'+
+            '<li>'+
+            '<a class="a_i">品名:</a>'+
+            '<a>'+json.product_name+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            ' <a class="a_i">单价:</a>'+
+            ' <a>'+json.price+'</a>'+
+            '</li>'+
+            '<li>'+
+            '<a class="a_i">车架号:</a>'+
+            '<a>'+json.frame_number+'</a>'+
+            '</li>'+
+            '<li>'+
+            ' <a class="a_i">级别:</a>'+
+            '<a>'+json.level+'</a>'+
+            ' </li>'+
+            '<li>'+
+            '<a class="a_i">座位数</a>'+
+            ' <a>'+json.number_seats+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            ' <a class="a_i">型号:</a>'+
+            '<a>'+json.kinds+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            '<a class="a_i">轮毂尺寸:</a>'+
+            '<a>'+json.size+'</a>'+
+            '</li>'+
+            '<li>'+
+            '<a class="a_i">生产日期:</a>'+
+            '<a>'+json.production_date+'</a>'+
+            ' </li>'+
+            ' <li>'+
+            '<a class="a_i">发动机号:</a>'+
+            '<a>'+json.engine_number+'</a>'+
+            ' </li>'+
+            '</ul>'+
+            '</div>'+
+            '<div class="liyw_2_tk_t">车辆配置信息</div>'+
+            '<div class="liyw_2_tk_p">'+
+           
+
+
+
+            ' </div>'+
+            '</div>'
+            )
+
+    var json2 = json.data;
+   
+            $.each(json2,function(a,t){
+              
+             this_t.find(".liyw_2_tk_p").append(
+                     '<div>'+t.name+'</div>'
+
+                )
+
+            })
+                this_t.find(".liyw_2_tk").css("margin-left",wid_+10+"px");
+                 }else{ 
+
+
+                 alert("未查到对应的数据");   
+                 }
+                 
+                } 
+                 
+            
+
+        })
+            
+            //$(this).find(".hover_cs").show();
+
+        },300);
+        },function(){
+            clearTimeout(t);
+
+             $(".liyw_2 .liyw_2_tk").remove()
+
+            
+        })
+    })
+
+
+
+</script>

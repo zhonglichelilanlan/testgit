@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;">
+<!--center开始-->
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">待处理工作</a>
+            <a class="more_" onclick="wwc()">更多</a>
+        </div>
+        <div class="bg_ej">
+            <ul class="yewu_630">
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+            <foreach name="list" item="vo">
+            <ul class="yewu_630_ yewu_630_7"  id="qufen_2">
+                <li class="liyw_1"  id ="{$vo.id}"><a>{$vo.name}</a></li>
+                <li class="liyw_2" id ="{$vo.info_id}"><a>{$vo.frame_number}</a></li>
+                <li class="liyw_3">
+                    <div>
+                        <if condition="$vo['sh_return_record'] neq ('0' or '')">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>回号:</span>
+                        <span class=" class_ span_2"><input type="text" id="srr" name="sh_return_record" disabled="disabled" value="{$vo.sh_return_record}" /></span>
+                    </div>
+                    <div>
+                        <if condition="$vo['dd_bill_number'] neq ''">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>提单号:</span>
+                        <span class=" class_ span_2"><input type="text" id="dbn" name="dd_bill_number"  value="{$vo.dd_bill_number}" /></span>
+                    </div>
+                    <div>
+                        <if condition="$vo['dd_nathan_time'] neq ''">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>拿单时间:</span>
+                        <span class=" class_ span_2"><input type="text" id="dnt" name="dd_nathan_time" <if condition="$vo['dd_nathan_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if> <if condition="$vo['dd_nathan_time'] neq ''">value="{$vo.dd_nathan_time|date="Y-m-d",###}"<else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <if condition="$vo['dd_stenclied'] neq ''">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>箱号:</span>
+                        <span class=" class_ span_2"><input type="text" id="ds" name="dd_stenclied"  value="{$vo.dd_stenclied}"/></span>
+                    </div>
+                    <div>
+                        <if condition="$vo['dd_arrive_time'] neq ''">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>到港时间:</span>
+                        <span class=" class_ span_2"><input type="text" id="dat" name="dd_arrive_time" <if condition="$vo['dd_arrive_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if> <if condition="$vo['dd_arrive_time'] neq ''">value="{$vo.dd_arrive_time|date="Y-m-d",###}"<else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <if condition="$vo['dd_change_time'] neq ''">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>换do时间:</span>
+                        <span class=" class_ span_2"><input type="text" id="dct" name="dd_change_time" <if condition="$vo['dd_change_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if><if condition="$vo['dd_change_time'] neq ''">value="{$vo.dd_change_time|date="Y-m-d",###}"<else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <if condition="$vo['dd_change_main_time'] neq ''">
+                        <span class=" class_ span_1 span_1_">
+                        <else />
+                        <span class=" class_ span_1">
+                        </if>换主单时间:</span>
+                        <span class=" class_ span_2"><input name="dd_change_main_time" id ="hdsj" type="text"  <if condition="$vo['dd_change_main_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if> <if condition="$vo['dd_change_main_time'] neq ''">value="{$vo.dd_change_main_time|date="Y-m-d",###}" <else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1">输号状态:</span>
+                        <span class=" class_ span_2">
+<style type="text/css">
+   
+</style>
+                    <a <if condition="$vo['dd_status'] eq '0'">class="wancheng_w"<else/></if>>未完成<input type="text"  name="dd_status" style="                               display:none;" value="0" />   </a>
+                            
+                            <a <if condition="$vo['dd_status'] eq '1'">class="wancheng_w" <else/></if>>完成 <input name="dd_status" type="text" style="display:none;"  value="1"/></a>        
+                            
+                            <i 
+                            <if condition="$vo['dd_is_huan'] eq '1'">
+                            class="thi_ wancheng_w"<else />class="thi_"</if> >无换单信息<input type="text"  name="dd_is_huan" <if condition="$vo['dd_is_huan'] eq '1'">value="1" <else/>value="0"</if> style="display:none;" /></i>
+                             <input id="size_11" value="{$vo['dd_status']}" style="display:none;">
+                        </span>
+                    </div>
+
+                </li>
+
+                <li class="liyw_4">
+                    <textarea placeholder="请在此输入备注信息......" id="ddr" name="dd_remarks" >{$vo.dd_remarks}</textarea>
+                     <div style="width:202px;text-align:center;margin-top:30px;">
+                        <!-- <img src="__IMG__/bcl.jpg" onclick="cc({$vo.info_id},this)" class="click_" style="cursor: pointer; "> -->
+                        <img src="__IMG__/bccg.jpg"  class="jiazai_1" style="display:none;" >
+                        <!-- <img src="/thinkphp/Public/images/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display: none;">
+                    </div>
+                </li>
+            </ul>
+            </foreach>
+            
+
+        </div>
+
+    </div>
+</div>
+
+
+ <script type="text/javascript">
+            $(function(){
+                $(".span_2 .this").click(function(){
+                    var ajax_=$(this).find("input").val();
+                    if(ajax_==0){
+                        $(this).addClass("wancheng_w");
+                        $(this).find("input").val("1");
+                    }else{
+                        $(this).removeClass("wancheng_w");
+                        $(this).find("input").val("0");
+                    }
+                })
+            })
+</script> 
+
+<script type="text/javascript">
+$(function(){
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+
+$(function(){
+    $(".yewu_630_ .liyw_4 textarea").change(function(){
+
+       var id_= $(this).val();
+
+        var this_3=$(this).parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().attr("id");
+       
+        var name_=$(this).attr("name")
+        var this_=$(this);
+        
+        $.ajax({
+            
+            url:"{:U('Home/Business/updd')}",
+            data:{"id":this_3,"zhi":id_,"qufen":this_4,"name":name_},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                this_.nextAll("div").find(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                
+                this_.nextAll("div").find(".jiazai").hide();
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+                 var sh = json.data;
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ .liyw_3 div .span_2 a,i").click(function(){
+
+       var id_= $(this).find("input").val();
+       var name_=$(this).find("input").attr("name");
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().parent().parent("").attr("id");
+      
+        var this_=$(this);
+      
+        $.ajax({
+            
+            url:"{:U('Home/Business/updd')}",
+            data:{"id":this_3,"name":name_,"zhi":id_,"qufen":this_4},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().parent().find(".jiazai").show()
+            },
+            success:function(text){
+                  this_.parent().parent().parent().parent().find(".jiazai").hide()
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ li span input").change(function(){
+      
+        var this_=$(this);
+        var this_2=$(this).val();
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+
+        var this_4=$(this).parent().parent().parent().parent().attr("id");
+
+         var this_5=$(this).attr("name");
+         var this_=$(this);
+         // alert(this_3+"......"+this_2+"......"+this_4+"......"+this_5)
+       
+ $.ajax({
+            
+            url:"{:U('Home/Business/updd')}",
+            data:{"id":this_3,"zhi":this_2,"qufen":this_4,"name":this_5},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").show();
+            },
+            success:function(text){
+                //   $
+                 this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").hide();
+                // alert(text)
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+});
+    });
+
+</script>
+<!--日历插件开始-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+<!--日历插件结束-->
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<script>
+    $(function(){
+        $(".yewu_630_ .liyw_3 div span a").click(function(){
+
+            $(this).parent("span").find("a").removeClass("wancheng_w");
+            $(this).addClass("wancheng_w");
+            var va_=$(this).find("input").val();
+            $(this).nextAll("#size_11").val(va_)
+        })
+    });
+</script>
+<script type="text/javascript">
+    function wwc(){
+
+        window.location.href="{:U('Home/Business/db_1')}";
+        }
+
+</script>
+<script type="text/javascript">
+    function ywc(){
+
+        window.location.href="{:U('Home/Business/db_2')}";
+        }
+
+</script>
+</body>
+</html>

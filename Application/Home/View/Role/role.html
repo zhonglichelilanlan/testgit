@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;" >
+<!--header开始s-->
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+    <div class="center_g center_l">
+        <div class="center_top"><a class="a_quanxian">权限管理</a></div>
+        <p class="p_hover"><a class="a_3">角色管理</a></p>
+
+    </div>
+    <div class="center_g center_r">
+        <div class="center_top"><a>角色管理</a></div>
+        <div class="center_c">
+            <div class="juese_">
+                <ul class="ul_1">
+                    <foreach name="role"  item="vo">
+
+                    <li  id="re_{$vo.id}" onclick="aa({$vo.id})">{$vo.name}</li>
+                    </foreach>
+                </ul>
+
+                <ul class="ul_10 ul_2">
+                    <li class="bag_1" id="bag_1_"><a class="">主要业务<input type="text" value="1" style="display: none;"></a></li>
+                    <foreach name="info"  item="vo">
+                    <!--<li class="li_"><a class="xuanze_">{$vo.name}<input type="text" value="0" style="display: none;"></a></li>-->
+                    <li class="li_" id="ll_{$vo.id}"><a class="xuanze_">{$vo.name}<input type="text" value="0" style="display: none;"></a></li>
+                    </foreach>
+                </ul>
+                <ul class="ul_10 ul_2">
+                    
+                    <li class="bag_1" id="bag_1_2"><a  class="">其它业务<input type="text" value="1" style="display: none;"></a></li>
+                    <foreach name="list"  item="vo">
+                    <!--<li class="li_"><a class="xuanze_">{$vo.name}<input type="text" value="0" style="display: none;"></a></li>-->
+                    <if condition=" $vo['name']  neq '权限管理' ">
+                    <li class="li_" id="dd_{$vo.id}"><a class="xuanze_">{$vo.name}<input type="text" value="0" style="display: none;"></a></li>
+                    </if>
+                   </foreach>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+     <div class="button" style="">保 存 </div>
+</div>
+<script type="text/javascript">
+$(function(){
+          var url = window.location.href;
+         var loc = url.substring(url.lastIndexOf('=')+1, url.length);
+         $("#re_"+loc).addClass("bag_1");
+         $("#ll_"+loc).addClass("xuanze_");
+         $("#dd_"+loc).addClass("xuanze_");
+
+
+})
+        function aa(id){
+
+        window.location.href="{:U('Home/Role/select')}?did="+id;
+        }
+
+</script>
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+</div>
+<!--bottom结束-->
+</body>
+</html>

@@ -1,0 +1,34 @@
+/*投资支付*/
+.paym {width: 980px;min-height: 475px;margin: auto;background: #FFF;margin-bottom: 50PX;}
+.pay_time{ width:900px; margin:auto; height:45px; padding-top:15px; line-height:45px; border-bottom:1px solid #D6D6D6; font-size:14px;}
+.pay_time b{ float:left; color:#FF0000; font-weight:normal; margin-right:5px;}
+.pay_time span{ float:left; color:#060606;}
+.pay_time p{ float:left; width:110px; height:25px; background:#009FE7;  margin-left:5px; margin-right:5px; margin-top:10px;}
+
+.pay_info{ width:900px; margin:auto; height:220px; padding-top:30px; border-bottom:1px solid #D6D6D6; font-size:14px;}
+.pay_info p{ height:40px; line-height:40px; font-size:14px; color:#000;}
+.pay_info p span{ display:block; float:left; width:120px; color:#979797;}
+
+.pay_sumb{ width:320px; height:160px; margin:auto;}
+.paypw{ padding-top:20px;}
+.paypw input{ width:283px; height:36px; border:1px solid #ddd; padding-left:35px; background:url(../images/key05.png) no-repeat 8px 8px;}
+.paywarm{ height:30px; line-height:30px; background:url(../images/warn_235d14b.png) no-repeat left; padding-left:20px; font-size:12px; color:#F00;}
+.paysub{ height:46px;}
+.paysub input{ width:320px; height:46px; background:#009FE7; border:none; line-height:46px; text-align:center; font-size:14px; color:#FFFFFF; letter-spacing:2px; cursor:pointer;}
+
+
+/*交易完成*/
+.pay_comp{ height:100px; padding-top:165px; text-align:center;}
+.pay_other{ width:500px; height:46px; margin:auto;}
+.pay_other a{ display:block; width:240px; height:46px; border-radius:5px; font-size:20px; color:#FFF; text-align:center; line-height:46px; letter-spacing:3px;}
+.pay_de{ float:left; background:#FF7200;}
+.pay_co{ float:right; background:#019FE8;}
+
+
+/*支付密码*/
+.hidden{ display: none;}
+.paypass_box{ height: 30px}
+
+
+
+

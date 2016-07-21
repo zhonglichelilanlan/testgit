@@ -1,0 +1,44 @@
+/*验证手机号码*/
+.key{ width:980px; min-height:475px; margin:auto; background:#FFF; margin-bottom:50PX;}
+.key_T{ width:900PX;height:40PX; margin:auto; border-bottom:1PX solid #EBEBEB; position:relative; margin-bottom:40px;}
+.key_T span{ display:block; width:100px; height:30px; font-size:16px;  position:absolute; bottom:-20px; left:30px; text-align:center; background:#FFF;}
+.key_T2{ width:900px; height:55px; margin:auto; padding-bottom:20px; }
+.key_T3 {width:322PX; height:37PX; border:1PX solid #DDDDDD; margin:auto;  position:relative;}
+.key_T3 input{ width:320PX; height:35px; border:none; outline:none;background:url(../images/key02.png) no-repeat 10PX; padding-left:35PX; color:#A9A9A9; }
+.key_T4{width:322PX; height:37PX;margin:auto; position: relative;}
+.key_T401 input{ width:165px; height:35px;border:1PX solid #DDDDDD; outline:none; background:url(../images/key03.png) no-repeat 10px; padding-left:35PX; color:#A9A9A9;float:left;}
+.key_T402{ width:115px; height:37px;float:right;}
+.key_T402 a{ color:#FFF; text-align:center; width:115px; height:37px; line-height:37px; background:#009FE8;  display:block;}
+.key_T5{ width:320PX; height:45PX; margin:auto; background:#009FE8;}
+.key_T5 a{color:#FFF; text-align:center; line-height:45px; font-size:16px; display:block;}
+/*重置密码*/
+.reset {width:322PX; height:37PX; border:1PX solid #DDDDDD; margin:auto; }
+.reset input{ width:285PX; height:35px; border:none; outline:none;background: url(../images/key05.png) no-repeat 10PX; padding-left:35PX; color:#A9A9A9; }
+/*密码重置成功*/
+.ok{ width:330px; height:150px; margin:auto; }
+.ok1{ width:330px; height:45px; text-align:center; padding-top:55px; font-size:18px;}
+.ok1 a{ color:#009FE8;}
+.ok1 input{ border:none; font-size:18px; color:#FF7200;}
+
+/*登录账号*/
+.dengluL{ float:left; width:480px; padding-left:80px; padding-top:70px;}
+.dengluR{ float:left; width:322PX; height:300PX; margin-top:40PX;}
+.dengluR1{ width:320PX; height:35PX; line-height:35PX;}
+.dengluR1 b{ float:left; font-weight:normal; color:#656565; font-size:16px;}
+.dengluR1 a{ display:block; float:right; color:#019FE8; font-size:14px; text-decoration: underline ;}
+ 
+.dengluR2 {width:320PX; height:35PX; border:1PX solid #DDDDDD; margin-top:5px; }
+.dengluR2 input{ width:285PX; height:33px; border:none; outline:none;background:url(../images/key02.png) no-repeat 10PX; padding-left:35PX; color:#A9A9A9; }
+.dengluR3 {width:320PX; height:35PX; border:1PX solid #DDDDDD;  }
+.dengluR3 input{ width:285PX; height:33px; border:none; outline:none;background: url(../images/key05.png) no-repeat 10PX; padding-left:35PX; color:#A9A9A9; }
+.dengluR4{ height:40PX; padding-top:20px;}
+.dengluR4L{ float:left; line-height:20px;}
+.dengluR4R a{ float:right;  float:right; color:#019FE8;  }
+.warming{ height:30px; line-height:30px; color:#F00; background:url(../images/warn_235d14b.png) no-repeat left; padding-left:25px;}
+.nowarming{ height:30px; line-height:30px; color:#F00; padding-left:25px;}
+.warbg{ width:320px; margin:auto;}
+.loading{ display:block; position:absolute; width:20px; height:20px; background:url(../images/loading.gif) no-repeat; right:-25px; top:7px;}
+
+/*注册账号*/
+.zhuce2{ padding-top:15px;}
+.zhuce2 a{color:#019FE8;}

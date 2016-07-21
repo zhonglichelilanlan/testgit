@@ -1,0 +1,55 @@
+/*帮助中心*/
+.help_ban{ height:270px; background:#DFE3E3; text-align:center;}
+.help1{ height:280px; background:#F4F4F4;}
+.help1_t{ height:55px; padding-top:35px; text-align:center;}
+.help1_m{ width:1200px; height:130px; margin:auto;}
+.help1_m li{ float:left; width:300px; height:105px; padding-top:25px; padding-left:70px; margin-left:15px; margin-right:15px; background:#FFF;}
+.help1_m li img{ float:left; width:64px; height:64px; margin-top:7px;}
+.help1_m li p{ float:right; width:215px;}
+.help1_m li p b{ font-size:36px; color:#009FE7;}
+.help1_m li p span{ display:block; height:30px; line-height:30px; font-size:14px; color:#000000; letter-spacing:1px;}
+.help2{ height:305px; padding-top:15px;}
+.help2_m{ width:1200px; height:160px; margin:auto; padding-top:10px;}
+.help2_m li{ float:left; width:120px; padding-left:60px; padding-right:60px;}
+.help2_m li a{ display:block; width:120px; height:50px; padding-top:110px; line-height:50px; font-size:24px; color:#646464; text-align:center;}
+.help2_m .h_pro1{ background:url(../images/h_pro1.png) no-repeat top center;}
+.help2_m .h_pro1:hover{ background:url(../images/h_pro10.png) no-repeat top center; color:#5BD375;}
+.help2_m .h_pro2{ background:url(../images/h_pro2.png) no-repeat top center;}
+.help2_m .h_pro2:hover{ background:url(../images/h_pro20.png) no-repeat top center; color:#009FE8;}
+.help2_m .h_pro3{ background:url(../images/h_pro3.png) no-repeat top center;}
+.help2_m .h_pro3:hover{ background:url(../images/h_pro30.png) no-repeat top center; color:#FF7201;}
+.help2_m .h_pro4{ background:url(../images/h_pro4.png) no-repeat top center;}
+.help2_m .h_pro4:hover{ background:url(../images/h_pro40.png) no-repeat top center; color:#00D39F;}
+.help2_m .h_pro5{ background:url(../images/h_pro5.png) no-repeat top center;}
+.help2_m .h_pro5:hover{ background:url(../images/h_pro50.png) no-repeat top center; color:#7E6BCC;}
+
+
+/*帮助中心-注册登录*/
+.help_nav{ height:44px; background:#436574;}
+.hnav{ width:1200px; margin:auto;}
+.hnav li{ float:left;}
+.hnav li span{ display:block; width:100px; height:20px; line-height:20px; margin-top:12px; text-align:center; font-size:16px; color:#FFF; border-right:1px solid #FFF;}
+.hnav li a{ display:block; width:80px; height:44px; line-height:44px; text-align:center; font-size:16px; color:#FFF; margin-left:80px;}
+.hnav li a:hover,.hnav li .h_aitc{ color:#FF7200;}
+.help_list{ width:1140px; min-height:430px; border:1px solid #EBEBEB; margin:auto; margin-top:30px; margin-bottom:30px; padding-left:30px; padding-right:30px;}
+.help_list li{ width:100%; padding-top:20px; padding-bottom:20px; border-bottom:1px solid #EBEBEB; letter-spacing:1px;}
+
+.help_li{ height:40px;}
+.help_li a{ display:block; width:100%; height:40px; line-height:40px;}
+.help_li a b{ font-size:18px; color:#000000; font-weight:bold;}
+.help_li a b:hover{ color:#009FE7;}
+.help_li a span{ float:right; display:block; width:20px; height:25px; margin-top:7px;}
+.helpinfo{ width:100%; line-height:20px; font-size:14px; color:#979797; padding-top:3px; padding-bottom:7px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

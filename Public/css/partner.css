@@ -1,0 +1,38 @@
+/*合作伙伴*/
+.part_main{ width:1160px; min-height:700px; border:1px solid #EBEBEB; margin:auto; margin-top:30px; margin-bottom:30px; padding:20px; padding-bottom:0px;}
+.partm_t{ height:50px; line-height:50px; border-bottom:1px solid #EBEBEB; font-size:24px; color:#FF7200;}
+.partm_m li{ width:100%; min-height:135px; padding-top:20px; padding-bottom:20px; border-bottom:1px solid #EBEBEB;}
+.partm_m .part_logo{ float:left; width:180px;}
+.partm_m .part_logo img{ width:180px; height:130px;}
+.part_info{ float:right; width:950px;}
+.part_info span{ display:block; height:32px; line-height:22px;}
+.part_info span a{ font-size:18px; color:#000000; font-weight:bold;}
+.part_info span a:hover{ color:#009FE7;}
+.part_info p{ font-size:14px; color:#000000; line-height:25px;}
+
+/*分页*/
+.page{ width:480px; height:37px; margin:auto; margin-top:30px; margin-bottom:30px;}
+.page a{ width:35px; height:35px; display:block; border:1px solid #EBEBEB; float:left; margin-right:10px; line-height:35px; text-align:center; color:#8C8C8C;}
+.page a:hover{border:1px solid #009FE8; color:#009FE8;}
+.page .page1{ width:85px; height:35px; float:left;}
+.page .page2{border:1px solid #009FE8; color:#009FE8;}
+.page .page3{ background:#E5E4E2; color:#FFF; border:none; height:37px;}
+.page .page3:hover{ border:none;color:#FFF;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,613 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/page.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/common.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/public.css?v=20160627" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/tk.css?v=20160628" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/date.css?v=20160627" />
+    <script type="text/javascript" src="__JS__/jquery-1.9.1.min.js?v=20160627"></script>
+    <script type="text/javascript" src="__JS__/public.js?v=20160627"></script>
+    <script type="text/javascript" src="__JS__/jq.js?v=20160627"></script>
+</head>
+<body style="background-color: #ededed;" onload="myfun()">
+<!--header开始-->
+<div class="header_">
+    <div class="header_w">
+        <div class="header_l">
+            <div class="logo_">
+                <img src="__IMG__/logo.png"/>
+            </div>
+            <ul>
+                <!-- <foreach name="lists" item="vo">
+                {$vo['name']}
+                <li  class="a_0" style="display: none;" id ="{$vo['action'][1]}"><a href="{:U('Home/Company/index')}">{$vo['name']}</a></li>
+                </foreach> -->
+                <!-- <span>{$vo['name']}</span> -->
+                <!--默认颜色的按钮是a_1之a_4 蓝色的是al_1之al_4-->
+                
+                <notempty name="infos">
+                <li  class="a_7" id="a_7_1">
+                    <a class="a_z" id="a_z">业务流程</a>
+                    <div class="id_div" style="" id="id_div_1">
+                    <foreach name="infos" item="v">
+                        <if condition="$v['name'] eq '到单操作'">
+                        <a href="{:U('Home/Business/daodan')}">到单操作</a>
+                        </if>
+                        <if condition="$v['name'] eq '报检操作'">
+                        <a href="{:U('Home/Business/baojian')}">报检操作</a>
+                        </if>
+                        <if condition="$v['name'] eq '报关操作'">
+                        <a href="{:U('Home/Business/baoguan')}">报关操作</a>
+                        </if>
+                        <if condition="$v['name'] eq '约上线操作'">
+                        <a href="{:U('Home/Business/ysx')}">约上线操作</a>
+                        </if>
+                        <if condition="$v['name'] eq '输号操作'">
+                        <a href="{:U('Home/Business/shuhao')}">输号操作</a>
+                        </if>
+                        <if condition="$v['name'] eq '客户代表'">
+                        <a href="{:U('Home/Manager/index')}">客户代表</a>
+                        </if>
+                        <if condition="$v['name'] eq '贸易公司管理'">
+                        <a href="{:U('Home/Company/index')}">贸易公司管理</a>
+                        </if>
+                    </foreach> 
+                    </div>
+                    
+                </li>
+                </notempty>
+                <notempty name="lists">
+                <li  class="a_7" id="a_7" >
+                    <a class="a_z">配置管理</a>
+                    <div class="id_div" style="" id="id_div">
+                    <foreach name="lists" item="vo">
+                        <if condition="$vo['name'] eq '权限管理'">
+                        <a href="__zlc__/Home/Role/select.html?did=4">权限管理</a>
+                        </if>
+                        <if condition="$vo['name'] eq '报表统计'">
+                        <a href="{:U('Home/Business/index')}">报表统计</a>
+                        </if>
+                        <if condition="$vo['name'] eq '操作日志'">
+                        <a href="{:U('Home/Logs/logs')}">操作日志</a>
+                        </if>
+                        <if condition="$vo['name'] eq '公司管理'">
+                        <a href="{:U('Home/Company/index')}">公司管理</a>
+                        </if>
+                        <if condition="$vo['name'] eq '贸易公司管理'">
+                        <a href="{:U('Home/Manager/mylist')}">贸易公司管理</a>
+                        </if>
+                    </foreach>
+                    </div>
+
+                </li>
+
+                </notempty>
+            </ul>
+        </div>
+        <div class="header_r">
+            <form action="{:U('Home/Business/daodan')}" method="post">
+                <div class="sousuo_" style="">
+                    <input class="in_" value="" type="text" name="search_cjh" id="search_cjh" placeholder="输入车架号后五位">
+                    <input value="1" type="hidden" name="stage" id="stage" >
+                    <input class="in_r" value="" type="submit">
+                </div>
+            </form>
+            <div class="div_">
+                <div class="tx_1">
+                    <div class="tx_">
+                        <img src="__IMG__/tx.png" />
+                    </div>
+                    <div>{$user_name}</div>
+                    <div class="hover_">
+                        <p class="p_1"><a href="{:U('Home/Index/password')}">个人设置</a></p>
+                        <p class="p_2"><a href="{:U('Home/Login/logout')}">退出</a></p>
+                    </div>
+                </div>
+                <script>
+                    $(function(){
+                        $(".div_ .hover_ p").click(function(){
+                            var href_=$(this).find("a").attr("href");
+                            window.location.href=href_;
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--header结束-->
+<script>
+
+    $(function(){
+
+        $(".yewu_630_7 .liyw_1 a").hover(function(){
+            $(".liyw_1").find(".hover_cs").remove();
+            var qufen=$(this).parent().parent("ul").attr("id");
+            var id_1= $(this).parent().attr("id");
+            var this_t=$(this);
+            var wid_=$(this).width()
+            t = setTimeout(function(){
+
+
+
+                if($(".hover_cs").size()==0){
+
+
+                    $.ajax({
+
+                        url:"{:U('Home/Business/slshuhao')}",
+                        data:{"id":id_1},
+                        type:'post',
+                        success:function(text){
+
+
+
+                            var json = eval("("+text+")");
+
+                            if(json){
+
+
+
+                                this_t.append(
+
+                                        '<div class="hover_cs" style="display: block" >'+
+                                        '<p class="pp_1">公司基本信息</p>'+
+                                        '<p class="pp_2"><a class="aaa_">公司名称: </a><a> '+json.name+'</a></p>'+
+                                        '<p class="pp_2"><a class="aaa_">公司法人: </a> <a> '+json.legal_person+'</a></p>'+
+                                        '<p class="pp_2"><a class="aaa_">公司管理员: </a> <a> '+json.user_name+'</a></p>'+
+                                        ' </div>'
+
+                                )
+                                this_t.find(".hover_cs").css("margin-left",wid_+"px");
+
+                            }else{
+
+
+                                alert("未查到对应的数据");
+                            }
+
+                        }
+
+
+
+                    })
+                }  else{
+                    $(this).find(".hover_cs").remove();
+                }
+                //$(this).find(".hover_cs").show();
+            },300);
+        },function(){
+            clearTimeout(t);
+            $(this).find(".hover_cs").hide();
+            $(this).find(".hover_cs").remove();
+        })
+
+    //11
+        $(".yewu_630_7 .liyw_2 a").hover(function(){
+
+
+            var qufen=$(this).parent().parent("ul").attr("id");
+
+            var id_2= $(this).parent().attr("id");
+
+            var this_t=$(this);
+            var wid_=$(this).width()
+            t = setTimeout(function(){
+
+                $.ajax({
+
+                    url:"{:U('Home/Business/slshuhaos')}",
+                    data:{"id":id_2,"did":qufen},
+                    type:'post',
+                    success:function(text){
+
+
+
+                        var json = eval("("+text+")");
+
+                        if(json){
+
+
+
+
+                            $(".liyw_2").find(".liyw_2_tk").remove();
+                            this_t.append(
+
+                                    '<div class="liyw_2_tk" style="display: block;" >'+
+                                    '<div class="sanjiao_"></div>'+
+
+                                    '<div class="liyw_2_tk_t">车辆基本信息</div>'+
+                                    '<div class="liyw_2_tk_c">'+
+                                    '<ul>'+
+                                    '<li>'+
+                                    '<a class="a_i">品名:</a>'+
+                                    '<a>'+json.product_name+'</a>'+
+                                    '</li>'+
+                                    ' <li>'+
+                                    ' <a class="a_i">颜色:</a>'+
+                                    ' <a>'+json.color+'</a>'+
+                                    '</li>'+
+                                    '<li>'+
+                                    '<a class="a_i">品名:</a>'+
+                                    '<a>'+json.product_name+'</a>'+
+                                    ' </li>'+
+                                    ' <li>'+
+                                    ' <a class="a_i">单价:</a>'+
+                                    ' <a>'+json.price+'</a>'+
+                                    '</li>'+
+                                    '<li>'+
+                                    '<a class="a_i">车架号:</a>'+
+                                    '<a>'+json.frame_number+'</a>'+
+                                    '</li>'+
+                                    '<li>'+
+                                    '<a class="a_i">座位数</a>'+
+                                    ' <a>'+json.number_seats+'</a>'+
+                                    ' </li>'+
+                                    ' <li>'+
+                                    ' <a class="a_i">型号:</a>'+
+                                    '<a>'+json.kinds+'</a>'+
+                                    ' </li>'+
+                                    ' <li>'+
+                                    '<a class="a_i">轮毂尺寸:</a>'+
+                                    '<a>'+json.size+'</a>'+
+                                    '</li>'+
+                                    '<li>'+
+                                    '<a class="a_i">生产日期:</a>'+
+                                    '<a>'+json.production_date+'</a>'+
+                                    ' </li>'+
+                                    ' <li>'+
+                                    '<a class="a_i">发动机号:</a>'+
+                                    '<a>'+json.engine_number+'</a>'+
+                                    ' </li>'+
+                                    '</ul>'+
+                                    '</div>'+
+                                    '<div class="liyw_2_tk_t">车辆配置信息</div>'+
+                                    '<div class="liyw_2_tk_p">'+
+
+
+
+
+                                    ' </div>'+
+                                    '</div>'
+                            )
+
+                            var json2 = json.data;
+
+                            $.each(json2,function(a,t){
+
+                                this_t.find(".liyw_2_tk_p").append(
+                                        '<div>'+t.name+'</div>'
+
+                                )
+
+                            })
+                            this_t.find(".liyw_2_tk").css("margin-left",wid_+10+"px");
+                        }else{
+
+
+                            alert("未查到对应的数据");
+                        }
+
+                    }
+
+
+
+                })
+
+                //$(this).find(".hover_cs").show();
+
+            },300);
+        },function(){
+            clearTimeout(t);
+
+            $(".liyw_2 .liyw_2_tk").remove()
+
+
+        })
+    })
+
+
+
+</script>
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">待处理工作</a>
+           <!--  <a class="more_" onclick="wwc()">更多</a> -->
+        </div>
+        <div class="bg_ej">
+            <ul class="yewu_630">
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+            <foreach name="list" item="vo">
+            <ul class="yewu_630_ yewu_630_7"  id="qufen_2">
+                <li class="liyw_1"  id ="{$vo.id}"><a>{$vo.name}</a></li>
+                <li class="liyw_2" id ="{$vo.info_id}"><a>{$vo.frame_number}</a></li>
+                <li class="liyw_3">
+                    <div>
+                        <span class=" class_ span_1 span_1_">回号:</span>
+                        <span class=" class_ span_2"><input type="text" id="srr" name="sh_return_record" disabled="disabled" value="{$vo.sh_return_record}" /></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">提单号:</span>
+                        <span class=" class_ span_2"><input type="text" id="dbn" name="dd_bill_number"  value="{$vo.dd_bill_number}" /></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">拿单时间:</span>
+                        <span class=" class_ span_2"><input type="text" id="dnt" name="dd_nathan_time" <if condition="$vo['dd_bill_number'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if> <if condition="$vo['dd_bill_number'] neq ''">value="{$vo.dd_nathan_time|date="Y-m-d",###}"<else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">箱号:</span>
+                        <span class=" class_ span_2"><input type="text" id="ds" name="dd_stenclied"  value="{$vo.dd_stenclied}"/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">到港时间:</span>
+                        <span class=" class_ span_2"><input type="text" id="dat" name="dd_arrive_time" <if condition="$vo['dd_arrive_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if> <if condition="$vo['dd_arrive_time'] neq ''">value="{$vo.dd_arrive_time|date="Y-m-d",###}"<else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">换do时间:</span>
+                        <span class=" class_ span_2"><input type="text" id="dct" name="dd_change_time" <if condition="$vo['dd_change_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if><if condition="$vo['dd_change_time'] neq ''">value="{$vo.dd_change_time|date="Y-m-d",###}"<else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1 span_1_">换主单时间:</span>
+                        <span class=" class_ span_2"><input name="dd_change_main_time" id ="hdsj" type="text"  <if condition="$vo['dd_change_main_time'] eq ('0' or '')"> class="date_picker date_1"<else/>class="date_picker date_1 up_1"</if> <if condition="$vo['dd_change_main_time'] neq ''">value="{$vo.dd_change_main_time|date="Y-m-d",###}" /><else />value=""</if></span>
+                    </div>
+                    <div>
+                        <span class=" class_ span_1">输号状态:</span>
+                        <span class=" class_ span_2">
+<style type="text/css">
+   
+</style>
+                    <a <if condition="$vo['dd_status'] eq '0'">class="wancheng_w"<else/></if>>未完成<input type="text"  name="dd_status" style="                               display:none;" value="0" />   </a>
+                            
+                            <a <if condition="$vo['dd_status'] eq '1'">class="wancheng_w" <else/></if>>完成 <input name="dd_status" type="text" style="display:none;"  value="1"/></a>        
+                            
+                            <i 
+                            <if condition="$vo['dd_is_huan'] eq '1'">
+                            class="thi_ wancheng_w"<else />class="thi_"</if> >无换单信息<input type="text"  name="dd_is_huan" <if condition="$vo['dd_is_huan'] eq '1'">value="1" <else/>value="0"</if> style="display:none;" /></i>
+                             <input id="size_11" value="{$vo['dd_status']}" style="display:none;">
+                        </span>
+                    </div>
+
+                </li>
+
+                <li class="liyw_4">
+                    <textarea placeholder="请在此输入备注信息......" id="ddr" name="dd_remarks" >{$vo.dd_remarks}</textarea>
+                     <div style="width:202px;text-align:center;margin-top:30px;">
+                        <!-- <img src="__IMG__/bcl.jpg" onclick="cc({$vo.info_id},this)" class="click_" style="cursor: pointer; "> -->
+                        <img src="__IMG__/bccg.jpg"  class="jiazai_1" style="display:none;" >
+                        <!-- <img src="/thinkphp/Public/images/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display: none;">
+                    </div>
+                </li>
+            </ul>
+            </foreach>
+            
+
+        </div>
+<div class="pages">
+    {$page}
+
+</div>
+    </div>
+</div>
+
+ <script type="text/javascript">
+            $(function(){
+                $(".span_2 .this").click(function(){
+                    var ajax_=$(this).find("input").val();
+                    if(ajax_==0){
+                        $(this).addClass("wancheng_w");
+                        $(this).find("input").val("1");
+                    }else{
+                        $(this).removeClass("wancheng_w");
+                        $(this).find("input").val("0");
+                    }
+                })
+            })
+</script> 
+
+
+<script type="text/javascript">
+$(function(){
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+
+$(function(){
+    $(".yewu_630_ .liyw_4 textarea").change(function(){
+
+       var id_= $(this).val();
+
+        var this_3=$(this).parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().attr("id");
+       
+        var name_=$(this).attr("name")
+        var this_=$(this);
+        
+        $.ajax({
+            
+            url:"{:U('Home/Business/updd')}",
+            data:{"id":this_3,"zhi":id_,"qufen":this_4,"name":name_},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                this_.nextAll("div").find(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                
+                this_.nextAll("div").find(".jiazai").hide();
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+                 var sh = json.data;
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ .liyw_3 div .span_2 a,i").click(function(){
+
+       var id_= $(this).find("input").val();
+       var name_=$(this).find("input").attr("name");
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().parent().parent("").attr("id");
+      
+        var this_=$(this);
+      
+        $.ajax({
+            
+            url:"{:U('Home/Business/updd')}",
+            data:{"id":this_3,"name":name_,"zhi":id_,"qufen":this_4},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().parent().find(".jiazai").show()
+            },
+            success:function(text){
+                  this_.parent().parent().parent().parent().find(".jiazai").hide()
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ li span input").change(function(){
+      
+        var this_=$(this);
+        var this_2=$(this).val();
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+
+        var this_4=$(this).parent().parent().parent().parent().attr("id");
+
+         var this_5=$(this).attr("name");
+         var this_=$(this);
+         // alert(this_3+"......"+this_2+"......"+this_4+"......"+this_5)
+       
+ $.ajax({
+            
+            url:"{:U('Home/Business/updd')}",
+            data:{"id":this_3,"zhi":this_2,"qufen":this_4,"name":this_5},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").show();
+            },
+            success:function(text){
+                //   $
+                 this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").hide();
+                // alert(text)
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+});
+    });
+
+</script>
+<!--日历插件开始-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+<!--日历插件结束-->
+<!--center结束-->
+<!--bottom开始-->
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<script>
+    $(function(){
+        $(".yewu_630_ .liyw_3 div span a").click(function(){
+
+            $(this).parent("span").find("a").removeClass("wancheng_w");
+            $(this).addClass("wancheng_w");
+            var va_=$(this).find("input").val();
+            $(this).nextAll("#size_11").val(va_)
+        })
+    });
+</script>
+<script type="text/javascript">
+    function wwc(){
+
+        window.location.href="{:U('Home/Business/db_1')}";
+        }
+
+</script>
+<script type="text/javascript">
+    function ywc(){
+
+        window.location.href="{:U('Home/Business/db_2')}";
+        }
+
+</script>
+</body>
+</html>

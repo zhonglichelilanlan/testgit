@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+<style>
+
+
+</style>
+<body style="background-color: #ededed;">
+<!--center开始-->
+<div class="center_">
+
+
+    <div class="kehu_628">
+        <div class="center_top">
+            <a class="maoyi_">待处理工作</a>
+            <!-- <a class="more_" onclick="wwc()">更多</a> -->
+        </div>
+        <div class="bg_ej">
+
+            <ul class="yewu_630">
+                <li class="liyw_1">贸易公司名称</li>
+                <li class="liyw_2">车架号</li>
+                <li class="liyw_3">关键事项及时间节点</li>
+                <li class="liyw_4">备注信息</li>
+            </ul>
+            <volist name="list" id="vo">
+            <ul class="yewu_630_ yewu_630_7" id="qufen_2">
+                <li class="liyw_1" id ="{$vo.id}"><a>{$vo.name}</a></li>
+                <li class="liyw_2" id ="{$vo.info_id}"><a>{$vo.frame_number}</a></li>
+                <li class="liyw_3">
+                    <div>
+                        <span <if condition="$vo['sh_return_record'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>回号:</span>
+                        <span class=" class_ span_2"><input type="text" id="bj_srr" name="sh_return_record" value="{$vo.sh_return_record}" disabled="disabled" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_3c_number'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>3c号:</span>
+                        <span class=" class_ span_2"><input type="text" id="bj_nr" name="bj_3c_number" value="{$vo.bj_3c_number}" /></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_contract'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>合同号:</span>
+                        <span class=" class_ span_2"><input type="text" id="bj_ct" name="bj_contract" value="{$vo.bj_contract}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_people'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>报检人:</span>
+                        <span class=" class_ span_2"><input type="text" id="bj_pe" name="bj_people"   value="{$vo.bj_people}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_price'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>报检价格:</span>
+                        <span class=" class_ span_2"><input type="text" id="bj_pc" name="bj_price" value="{$vo.bj_price}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_factory'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>一致性改装厂:</span>
+                        <span class=" class_ span_2"><input type="text"  id="bj_fy" name="bj_factory" value="{$vo.bj_factory}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_permit'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>许可证号:</span>
+                        <span ><input type="text" id="bj_bp" name="bj_permit" value="{$vo.bj_permit}"/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_issue_time'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>出通关单时间:</span>
+                        <span class=" class_ span_2"><input type="text"   class="date_picker date_1"  id="bj_tim" name="bj_issue_time" 
+                        <if condition="$vo['bj_issue_time'] neq ''">
+                        value="{$vo.bj_issue_time|date="Y-m-d",###}" <else />value=""</if>/></span>
+                    </div>
+                    <div>
+                        <span <if condition="$vo['bj_is_check'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if> id="bj_ick" name="bj_is_check" value="{$vo.bj_is_check}">是否验木:</span>
+                        <span class=" class_ span_2">
+
+                            <a class="this_1 this_1_" id="1">是<input type="text" value="1" style="display:none;" /></a>
+                            <a class="this_1"  id="0">否<input type="text" value="0" style="display:none;" /></a>
+                            <input class="val_" type="text" value="1" style="display:none;">
+                        </span>
+                    </div>
+                    <div class="yamu_">
+                        <span <if condition="$vo['bj_ymtime'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if>>验木时间:</span>
+                        <span class=" class_ span_2"><input type="text"   class="date_picker date_1"  id="bj_cs" name="bj_ymtime"
+                        <if condition="$vo['bj_ymtime'] eq ''">
+                        value="" </if>
+                        <if condition="$vo['bj_ymtime'] neq ''">
+                        value="{$vo.bj_ymtime|date="Y-m-d",###}" </if>
+                        /></span>
+                    </div>
+                    
+                    <div>
+                        <span class=" class_ span_1">证书列表:</span>
+                        <span class=" class_ span_2">
+
+                           <volist name="info" id="in">
+                            <!-- {$in['name']} -->
+                            {$xz}
+                            <a  <if condition="$vos eq 1">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="1">{$in['name']}<input type="text"  name="bj_certificates" value="{$in['id']}" style="display: none;"></a>
+                            <!-- <a <if condition="$vos eq 2">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="2">发票<input type="text" value="1" name="bj_certificates"  style="display: none;"></a>
+                            <a <if condition="$vos eq 3">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="3">箱单<input type="text" value="1" name="bj_certificates" style="display: none;"></a>
+                            <a <if condition="$vos eq 4">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="4">清单<input type="text" value="1" name="bj_certificates" style="display: none;"></a>
+                            <a <if condition="$vos eq 5">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="5">蓝联<input type="text" value="1" name="bj_certificates" style="display: none;"></a>
+                            <a <if condition="$vos eq 6">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="6">报检委托书<input type="text" name="bj_certificates" value="1" style="display: none;"></a>
+                            <a <if condition="$vos eq 7">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="7">整改说明<input type="text" name="bj_certificates" value="1" style="display: none;"></a>
+                            <a <if condition="$vos eq 8">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="8">整改委托书<input type="text" name="bj_certificates"  value="1" style="display: none;"></a>
+                            <a <if condition="$vos eq 9">class="checkbox_ wancheng_w"<else/>class="checkbox_"</if> user_id="9">通关单<input type="text" name="bj_certificates"value="1" style="display: none;"></a> -->
+
+                          
+                            </volist>
+
+
+                        </span>
+                    </div>
+                    
+
+
+                    <div>
+                        <span <if condition="$vo['bj_status'] eq ('0' or '')">class="class_ span_1"<else/>class=" class_ span_1 span_1_"</if> id="bj_st" name="bj_status"value="{$vo.bj_status}">报检状态:</span>
+                        <span class=" class_ span_2">
+
+                            <a  <if condition="$vo['bj_status'] eq ('0' or '')">class="this_ wancheng_w"<else/>class="this_"</if>>未完成<input name="bj_status" type="text" style="display:none;"   value="0" /></a>
+                           
+                            <a  <if condition="$vo['bj_status'] neq ('0' or '')">class="this_ wancheng_w"<else/>class="this_"</if>>完成<input name="bj_status" type="text" style="display:none;"  value="1"/></a>
+                            <a  class=" this_db">打保 <input name="bj_status" class="wancheng_db" type="text" value="0" style="display:none;"></a>
+                            <input class="wancheng_" type="text" value="0"  style="display:none;">
+                        </span>
+                    </div>
+
+                </li>
+                <li class="liyw_4">
+                    <textarea placeholder="请在此输入备注信息......"id="bj_remarks" name="bj_remarks">{$vo.bj_remarks}</textarea>
+                    <div style="width:202px;text-align:center;margin-top:30px;">
+                       <!--  <img src="__IMG__/bcl.jpg" onclick="cc(this)" class="click_" style="cursor: pointer;"> -->
+                        <img src="__IMG__/bccg.jpg"  style="display:none;" class="jiazai_1">
+                        <!-- <img src="__IMG__/bch.jpg"> -->
+                        <img src="__IMG__/bcz11.gif" class="jiazai" style="display:none;">
+                    </div>
+                </li>
+            </ul>
+            </volist>
+            
+
+        </div>
+
+    </div>
+</div>
+
+<!--日历插件开始-->
+<script type="text/javascript" src="__JS__/jquery.date_input.pack.js?v=20160627"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.date_picker').date_input();
+    })
+</script>
+<!--日历插件结束-->
+<!--center结束-->
+<!--bottom开始-->
+<script type="text/javascript">
+$(function(){
+
+    $(".bg_ej .yewu_630_ .liyw_3 div .span_2 a").click(function(){
+       var val_= $(this).attr("id");
+       $("#in_705").val(val_)
+    })
+})
+
+$(function(){
+    $(".yewu_630_ .liyw_4 textarea").change(function(){
+
+       var id_= $(this).val();
+
+        var this_3=$(this).parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().attr("id");
+       
+        var name_=$(this).attr("name")
+        var this_=$(this);
+        
+        $.ajax({
+            
+            url:"{:U('Home/Business/upbj')}",
+            data:{"id":this_3,"zhi":id_,"qufen":this_4,"name":name_},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                this_.nextAll("div").find(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+            },
+            success:function(text){
+                
+                this_.nextAll("div").find(".jiazai").hide();
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                 
+                 if(json.code==1){ 
+                 var sh = json.data;
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".span_2 a").click(function(){
+   
+       var id_= $(this).find("input").val();
+       var name_=$(this).find("input").attr("name");
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+        var this_4=$(this).parent().parent().parent().parent("").attr("id");
+      
+        var this_=$(this);
+        $.ajax({
+            
+            url:"{:U('Home/Business/upbj')}",
+            data:{"id":this_3,"name":name_,"zhi":id_,"qufen":this_4},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().parent().find(".jiazai").show()
+            },
+            success:function(text){
+                  this_.parent().parent().parent().parent().find(".jiazai").hide()
+                
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+    })
+    $(".yewu_630_ li span input").change(function(){
+      
+        var this_=$(this);
+        var this_2=$(this).val();
+        var this_3=$(this).parent().parent().parent().parent().find(".liyw_2").attr("id");
+
+        var this_4=$(this).parent().parent().parent().parent().attr("id");
+
+         var this_5=$(this).attr("name");
+         var this_=$(this);
+       
+ $.ajax({
+            
+            url:"{:U('Home/Business/upbj')}",
+            data:{"id":this_3,"zhi":this_2,"qufen":this_4,"name":this_5},
+            type:'post',
+            beforeSend:function(){
+                // $(tt).hide();
+                // $(tt).nextAll(".jiazai").show();
+                // $(tt).nextAll(".click_").hide();
+                this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").show();
+            },
+            success:function(text){
+                //   $
+                 this_.parent().parent().parent().nextAll(".liyw_4").find(".jiazai").hide();
+                // alert(text)
+                // $("id").val()
+
+                 var json = eval("("+text+")");
+                   
+                 if(json.code==1){ 
+                   
+                 
+
+                 }else if(json.code==-2){ 
+                    layer.msg('不存在', 1, 1);
+                  
+                 }else if(json.code==-1){
+                    layer.msg('服务器不存在', 1, 1);
+                 $("#passwords").show();  
+
+                 }
+                
+                } 
+                 
+            
+
+        })
+});
+    });
+
+</script>
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<script>
+    $(function(){
+
+
+        $(".yewu_630_ .liyw_3 div span .this_").click(function(){
+
+            $(this).parent("span").find(".this_").removeClass("wancheng_w");
+            $(this).addClass("wancheng_w");
+            var id_=$(this).attr("id")
+            $(this).nextAll(".wancheng_").val(id_)
+
+        })
+        $(".yewu_630_ .liyw_3 div span .this_1").click(function(){
+           
+            $(this).nextAll(".val_").val($(this).attr("id"))
+            $(this).parent("span").find(".this_1").removeClass("this_1_");
+            $(this).addClass("this_1_");
+            var val_=$(this).index();
+
+            var id_=$(this).attr("id");
+            $(this).nextAll("val_").val(id_);
+            if(val_!=0){
+                $(this).parent().parent().nextAll(".yamu_").hide();
+            }else{
+                $(".yamu_").show();
+            }
+        })
+        $(".yewu_630_ .liyw_3 div span .checkbox_").click(function(){
+
+
+
+           var val_= $(this).find("input").val();
+
+            if(val_==1){
+                $(this).addClass("wancheng_w ");
+                $(this).find("input").val("0");
+
+            }else{
+                $(this).removeClass("wancheng_w ");
+                $(this).find("input").val("1");
+            }
+        })
+        $(".yewu_630_ .liyw_3 div span .this_db").click(function(){
+
+
+
+           var val_= $(this).find("input").val();
+            if(val_==0){
+                $(this).addClass("wancheng_w ");
+                $(this).find("input").val("1");
+
+            }else{
+                $(this).removeClass("wancheng_w ");
+                $(this).find("input").val("0");
+            }
+        })
+        
+    });
+</script>
+<script type="text/javascript">
+    function wwc(){
+
+        window.location.href="{:U('Home/Business/bj_1')}";
+        }
+
+</script>
+<script type="text/javascript">
+    function ywc(){
+
+        window.location.href="{:U('Home/Business/bj_2')}";
+        }
+
+</script>
+</body>
+</html>

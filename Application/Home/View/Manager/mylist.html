@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<include file="Public/header.html" />
+
+<body style="background-color: #ededed;" onload="myfun()">
+
+<!--header结束-->
+<!--center开始-->
+<div class="center_">
+    <div class="center_g center_l">
+        <div class="center_top"><a class="a_mygs">贸易公司管理</a></div>
+        <p class="p_hover"><a class="a_6" href="{:U('Home/Manager/mylist')}">公司列表</a></p>
+
+
+    </div>
+    <div class="center_g center_r">
+        <div class="center_top"><a>公司列表</a><a href="{:U('Home/Manager/add')}" class="xinzeng_"><img src="__IMG__/myzj1.png"/></a></div>
+        <div class="center_c">
+            <table width="825">
+                <tr>
+                    <th>贸易公司名称</th>
+                    <th>贸易公司法人</th>
+                    <th>贸易公司管理员</th>
+                    <th>操作</th>
+                </tr>
+                <foreach name="list" item="vo">
+                <tr>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.legal_person}</td>
+                    <td>{$vo.user_name}</td>
+                    
+                    <td><a onclick="aa({$vo.id})">修改</a><span>|</span><a class="delete_"  de_id="{$vo.id}">删除</a></td>
+
+                </tr>
+                </foreach>
+
+            </table>
+            <div class="pages">
+                 {$page}
+
+            </div>
+        </div>
+    </div>
+</div>
+<input id="delete_" type="text" value="" style="display:none;">
+<!--center结束-->
+<!--bottom开始-->
+<script type="text/javascript">
+    
+function aa(id){
+    window.location.href="{:U('Home/Manager/edit')}?did="+id;
+}
+
+function del(){
+    var us_id=$("#delete_").val();
+    $.ajax({
+ 
+            url:"{:U('Home/Manager/delete_com')}",
+            data:{"id":us_id},
+            type:'post',
+            success:function(text){
+                 
+                
+                
+
+                 var json = eval("("+text+")");
+               
+                 if(json.code==1){ 
+                   
+                    
+            
+                 window.location.href="{:U('Home/Manager/mylist')}";
+
+                 }else if(json.code==-1){
+                  
+                  $(".tk_1").hide();
+                  $(".tk_2").show();
+
+                 }
+                 
+                } 
+                 
+            
+
+        })
+}
+
+</script>
+<include file="Public/footer.html" />
+<!--bottom结束-->
+<!--系统提示弹框开始-->
+<!--系统提示弹框结束-->
+<div class="tmc_1"></div>
+<div class="tk_1">
+    <div class="xtts_">系统提示</div>
+    <div class="xtts_1">请确认你要删除的的信息是否准确?</div>
+    <div class="xtts_2">
+        <input type="button" value="确认" onclick="del()" class="queren_ thiks">
+        <input type="button" value="取消" class="quxiao_">
+    </div>
+</div>
+<div class="tk_2">
+    <div class="xtts_">系统提示</div>
+    <div class="xtts_1">你无权删除该信息，请联系技术支持管理人员！</div>
+    <div class="xtts_2">
+        <input type="button" value="确认" class="queren_ queren_on">
+        <input type="button" value="取消" class="quxiao_">
+    </div>
+</div>
+<!--系统提示弹框结束-->
+
+</body>
+</html>
